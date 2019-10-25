@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加导航</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<ol class="breadcrumb">
+    <li>首页</li>
+    <li class="active">商品添加</li>
+</ol>
+<form>
+    <div class="form-group">
+        <label for="exampleInputPassword7">商品所属分类</label>
+        <select class="form-control" id="exampleInputPassword7" name="cid">
+
+            <?php
+                foreach ($result as $value){
+            ?>
+            <option value="<?php echo $value['id'] ?>" <?php $goods['cid']==$value['id']? 'selected':''; ?> ><?php echo $value['cname'] ?></option>
+            <?php  }  ?>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">商品名称</label>
+        <input type="text" name="gname" class="form-control" id="exampleInputEmail1" placeholder="商品名称" value="<?php echo $goods['gname']?>">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">市场价格</label>
+        <input type="number" name="mprice" class="form-control" id="exampleInputPassword1" placeholder="市场价格" value="<?php echo $goods['mprice']?>">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword2">零售价格</label>
+        <input type="number" name="sale" class="form-control" id="exampleInputPassword2" placeholder="零售价格" value="<?php echo $goods['sale']?>">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword3">库存</label>
+        <input type="numbert" name="gstock" class="form-control" id="exampleInputPassword3" placeholder="库存数量" value="<?php echo $goods['gstock']?>">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword4">商品详情</label>
+        <textarea name="gdatail" type="text"  id="exampleInputPassword4"  placeholder="商品详细信息" class="form-control" ><?php echo $goods['gdatail']?></textarea>
+    </div>
+
+    <div class="form-group" >
+        <label for="exampleInputPassword5">商品缩略图 <span style="font-size: 10px;color: #d0d0d0">比例：1*1，最佳尺寸200*200</span></label>
+        <input type="file" class="form-control" id="exampleInputPassword5" accept="image/*">
+    </div>
+    <div class="form-group" id="gthumb">
+        <input type="hidden" name="gthumb">
+        <label for="exampleInputPassword5" class="hidden"></label>
+        <img src="<?php echo $goods['gthumb']?>" >
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword6">轮播图<span style="font-size: 10px;color: #d0d0d0">比例：1*1，最佳尺寸200*200</span></label>
+        <input type="file" multiple accept="image/*" class="form-control" id="exampleInputPassword6">
+        <?php ?>
+        <!--multiple   可以选中多张图片-->
+    </div>
+    <div class="form-group " id="gbanner">
+        <input type="hidden" name="gbanner">
+        <label class="hidden"></label>
+        <?php foreach(explode(',',$goods['gbanner']) as $key=>$val){ ?>
+        <img src="<?php echo $val;?>" name="gbanner" alt="" style="width: 50px;height: 20px;">
+        <?php } ?>
+        <!--<img src="" alt=""  style="width: 200px;">-->
+    </div>
+    <input type="hidden" name="gid" value="<?php echo $goods['gid']?>">
+    <button type="submit" class="btn btn-default">提交信息</button>
+</form>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+        $('form').on('submit', function (e) {
+            e.preventDefault();
+            let qs = $(this).serialize();
+            //1.location.search    qs+='$gid';
+
+            $.ajax({
+                url:'goodsupdata.php',
+                type:'POST',
+
+            })
+        });
+</script>
+</html>

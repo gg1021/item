@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加导航</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<ol class="breadcrumb">
+    <li>首页</li>
+    <li class="active">商品添加</li>
+</ol>
+<form>
+    <div class="form-group">
+        <label for="exampleInputPassword7">商品所属分类</label>
+        <select class="form-control" id="exampleInputPassword7" name="cid">
+
+            <?php
+                foreach ($result as $value){
+            ?>
+
+            <option value="<?php echo $value['id'] ?>"><?php echo $value['cname'] ?> </option>
+
+            <?php  }  ?>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">商品名称</label>
+        <input type="text" name="gname" class="form-control" id="exampleInputEmail1" placeholder="商品名称">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">市场价格</label>
+        <input type="number" name="mprice" class="form-control" id="exampleInputPassword1" placeholder="市场价格">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword2">零售价格</label>
+        <input type="number" name="sale" class="form-control" id="exampleInputPassword2" placeholder="零售价格">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword3">库存</label>
+        <input type="number" name="gstock" class="form-control" id="exampleInputPassword3" placeholder="库存数量">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword4">商品详情</label>
+        <textarea name="gdatail" type="text"  id="exampleInputPassword4"  placeholder="商品详细信息" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group" >
+        <label for="exampleInputPassword5">商品缩略图 <span style="font-size: 10px;color: #d0d0d0">比例：1*1，最佳尺寸200*200</span></label>
+        <input type="file" class="form-control" id="exampleInputPassword5" placeholder="商品缩略图" accept="image/*">
+    </div>
+    <div class="form-group" id="gthumb">
+        <input type="hidden" name="gthumb">
+        <label for="exampleInputPassword5" class="hidden"></label>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword6">轮播图</label>
+        <input type="file" multiple accept="image/*"  class="form-control" id="exampleInputPassword6" placeholder="请选择文件">
+        <!--multiple   可以选中多张图片-->
+    </div>
+    <div class="form-group " id="gbanner">
+        <input type="hidden" name="gbanner">
+        <label class="hidden"></label>
+        <!--<img src="" alt=""  style="width: 200px;">-->
+    </div>
+    <button type="submit" class="btn btn-default">提交信息</button>
+</form>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    // input中的时间 change值发生改变且失去焦点时触发  input值改变时触发   focus 获得焦点  blur 失去焦点
+    //单张图片上传
+    $('input[id=exampleInputPassword5]').on('change',function (){
+        // 1.    前台预览
+                /*$('#thumb').attr('src',URL.createObjectURL(file));    预览上传的图片
+                * 两种方法
+                *
+                * */
+        let file = this.files[0];
+        let formdata = new FormData();
+        formdata.append('file',file);
+
+        //同步的方式写异步
+        let promise = new Promise(function (resolve,reject){
+            $.ajax({
+                url:'upload.php',
+                type:'post',
+                data:formdata,
+                dataType:'json',
+                processData:false,
+                contentType:false,
+                success:function(res){
+                   if (res.code == 200){
+                       resolve(res);
+                   } else{
+                       reject(res);
+                   }
+                }
+            })
+        })
+        promise.then(function (res){
+            let src = res.src;
+            $('<img>').appendTo('#gthumb').attr('src',src).css('width', 200);
+            $('input[name=gthumb]').val(res.src);
+        },function (res){}).catch()
+
+        // $.ajax({
+        //     url:'upload.php',
+        //     type:'post',
+        //     data:formdata,
+        //     dataType:'json',
+        //     processData:false,
+        //     contentType:false,
+        //     success:function(res){
+        //         $('#thumb').attr('src',res.src);
+        //         $('input[name=gthumb]').val(res.src);
+        //     }
+        // })
+
+    });
+
+    //多张图片上传
+    $('input[id=exampleInputPassword6]').on('change',function () {
+        let file = this.files;
+        for (let i = 0; i < file.length; i++) {
+            let formdata = new FormData();
+            formdata.append('file', file[i]);
+            $.ajax({
+                url: 'upload.php',
+                type: 'post',
+                data: formdata,
+                processData: false,
+                dataType: 'json',
+                contentType: false,
+                success: function (res) {
+                    let src = res.src;
+                    $('<img>').appendTo('#gbanner').attr('src',src).css('width', 200);
+                    let gbannerInput = $('input[name=gbanner]');
+                    gbannerInput.val((index, value) => value + src + ',');
+
+                    /*gbannerInput.val(gbannerInput.val()+src+',');
+                    *gbannerInput.val(function (index,value){
+                    *    return value+src+',';
+                    *})*/
+                }
+            })
+        }
+        // setTimeout(function () {
+        //     $('input[name=gbanner]').val( $('input[name=gbanner]').val().slice(0,-1));
+        // },1000)
+
+    });
+        $('form').on('submit', function (e) {
+            e.preventDefault();
+            //序列   控件包含在form中
+            // let qs = $(this).serialize();
+            // $.ajax({
+            //     url:'goodsinsert.php',
+            //     type:'POST',
+            //     dataType:'json',
+            //     data:qs,
+            //     context:this,
+            //     success:function (res){
+            //         if (res.code == 200){
+            //             alert(res.msg);
+            //             this.reset();
+            //         } else{
+            //             alert(res.msg);
+            //         }
+            //     }
+            // })
+
+            //空值
+            // 1.  let formdata = new FormData(form);
+            // formdata.append('names','zhangsan');
+            //2.  form预置数据
+            let myform = new FormData(this);
+            // let qs = $(this).serialize();
+            myform.set('gbanner',myform.get('gbanner').slice(0,-1));
+            // $('input[name=gbanner]').val( $('input[name=gbanner]').val().slice(0,-1));
+            $.ajax({
+                url: 'goodsinsert.php',
+                type: 'POST',
+                dataType: 'json',
+                data: myform,
+                context: this,
+                processData: false,
+                contentType: false,
+                success: function (res) {
+                    if (res.code == 200) {
+                        alert(res.msg);
+                        this.reset();
+                        $('img').remove();
+
+                    } else {
+                        alert(res.msg);
+                    }
+                }
+            })
+
+        });
+</script>
+</html>

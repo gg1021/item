@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查看</title>
+    <link rel="stylesheet" href="/thinkPHP/public/static/css/layui.css">
+    <script src="/thinkPHP/public/static/layui.js"></script>
+</head>
+<body>
+<table class="layui-hide" id="demo" lay-filter="test" ></table>
+
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+    </div>
+</script>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script src="/thinkPHP/public/static/layui.js"></script>
+<script>
+    const HOSTNAME='/thinkPHP/public/index.php';
+    layui.use(['table','layer'],function(){
+        let table = layui.table,layer=layui.layer,$=layui.$;
+        table.render({
+            elem:'#demo',
+            toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+            ,defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+                title: '提示'
+                ,layEvent: 'LAYTABLE_TIPS'
+                ,icon: 'layui-icon-tips'
+            }],
+            url:'/thinkPHP/public/index.php/admin/nav/query',
+            cols:[[{type: 'checkbox', fixed: 'left'},
+                {field:'id',title:'ID', unresize: true, sort: true},
+                {field:'nname',title:'中文名称',edit: 'text',},
+                {field:'ename',title:'英文名称',edit: 'text',templet:'<div><em>{{d.ename}}</em></div>'},
+                {field:'nsort',title:'排序',edit: 'text',},
+                {field:'ntpl',title:'地址',edit: 'text',},
+                {field:'right',title:'操作',toolbar:'#barDemo'}
+                ]],
+        })
+        //头工具栏事件
+        table.on('toolbar(test)', function(obj){
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch(obj.event){
+                case 'getCheckData':
+                    var data = checkStatus.data;
+                    layer.alert(JSON.stringify(data));
+                    break;
+                case 'getCheckLength':
+                    var data = checkStatus.data;
+                    layer.msg('选中了：'+ data.length + ' 个');
+                    break;
+                case 'isAll':
+                    layer.msg(checkStatus.isAll ? '全选': '未全选');
+                    break;
+
+                //自定义头工具栏右侧图标 - 提示
+                case 'LAYTABLE_TIPS':
+                    layer.alert('这是工具栏右侧自定义的一个图标按钮');
+                    break;
+            };
+        });
+
+        //监听行工具事件
+        table.on('tool(test)', function(obj){
+            var data = obj.data;
+            console.log(obj)
+            if(obj.event === 'del'){
+                layer.confirm('真的删除这行么', function(index){
+
+                    let id = obj.data.id;
+                    $.ajax({
+                        url:HOSTNAME+'/admin/Nav/remove',
+                        type:'POST',
+                        data:{'id':id},
+                        dataType:'json',
+                        success:function (res) {
+                            if (res.code==200){
+                                obj.del();
+                                layer.close(index);
+                                layer.msg(res.msg);
+                            }
+                        }
+                    })
+                });
+            } else if(obj.event === 'edit'){
+                console.log(obj);
+                layer.prompt({
+                    formType: 2
+                    ,value: data.email
+                }, function(value, index){
+                    obj.update({
+                        email: value
+                    });
+                    layer.close(index);
+                });
+            }
+        });
+        table.on('edit(test)',function (obj) {
+            let value = obj.value //得到修改后的值
+                ,id = obj.data.id //得到所在行所有键值
+                ,field = obj.field
+                ,data = obj.data; //得到字段
+            // layer.open();
+            let index = layer.load(2);
+
+            $.ajax({
+                url:'/thinkPHP/public/index.php/admin/Nav/update',
+                type:'POST',
+                // data:{'id':id,'value':value,'field':field},
+                data:{id,value,field},
+                // data:data,
+                dataType:'json',
+                success:function (res) {
+                    console.log(res);
+                    if (res.code==200){
+                        layer.close(index);
+                        layer.msg('[ID: '+ id +'] ' + field + ' 字段更改为：'+ value);
+                    }
+                }
+            });
+
+        });
+    });
+</script>
+
+</body>
+</html>

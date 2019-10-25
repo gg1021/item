@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+    table input{
+        border: none;
+        outline: none;
+    }
+</style>
+<body>
+<ol class="breadcrumb">
+    <li>首页</li>
+    <li class="active">商品展示<?php ?></li>
+</ol>
+
+<table class="table table-striped <?php echo count($result)?'':'hidden'; ?>">
+    <thead>
+        <tr>
+            <th>所属分类</th>
+            <th>商品名称</th>
+            <th>缩略图</th>
+            <th>市场价</th>
+            <th>零售价</th>
+            <th>库存</th>
+            <th>轮播图</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+            <?php
+                foreach($result as $key =>$value){
+                    ?>
+                    <tr id="<?php echo $value['gid'] ?>">
+                        <td>
+                            <input name="cname" type="text" data-value="<?php echo $value['cname']; ?>" value="<?php echo $value['cname']; ?>">
+                        </td>
+                        <td>
+                            <input name="gname" type="text" data-value="<?php echo $value['gname']; ?>" value="<?php echo $value['gname']; ?>"></td>
+                        <td>
+                            <img src="<?php echo $value['gthumb']?>" alt="" style="width: 50px;height: 20px"></td>
+                        <td>
+                            <input name="mprice" type="text" data-value="<?php echo $value['mprice']; ?>" value="<?php echo $value['mprice']; ?>">
+                        </td>
+                        <td>
+                            <input name="sale" type="text" data-value="<?php echo $value['sale']; ?>" value="<?php echo $value['sale']; ?>">
+                        </td>
+                        <td>
+                            <input name="gstock" type="text" data-value="<?php echo $value['gstock']; ?>" value="<?php echo $value['gstock']; ?>">
+                        </td>
+                        <td>
+                            <?php foreach(explode(',',$result[$key]['gbanner']) as $key=>$val){ ?>
+                         
+                            <img src="<?php echo $val;?>" name="gbanner" alt="" style="width: 50px;height: 20px;">
+                            <?php } ?>
+                        </td>
+                        <td>
+                            <a href="goodsupdata.php?gid='<?php echo $value['gid'] ?>'" class="btn btn-success shanchu" >编辑</a>
+                            <button class="btn btn-danger dianji">删除</button>
+                            <!--<button class="btn btn-success">编辑</button>-->
+                        </td>
+                    </tr>
+            <?php
+                }
+            ?>
+    </tbody>
+</table>
+<div class="<?php echo !count($result)?'':'hidden'; ?>">暂无数据</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $("tbody").on('blur','input',function (){
+        let value = this.value;
+        let id = $(this).closest('tr').attr('id');
+        let type = this.name;
+        let oldvalue = this.dataset.value;
+        value.length && oldvalue != value && $.ajax({
+            url:'goodschange.php',
+            type:'POST',
+            dataType:'json',
+            data:{id,value,type},
+            context:this,
+            success:function(res){
+                if (res.code == 200){
+                    alert(res.msg);
+                    $('data-value').val(value);
+                }else{
+                    alert(res.msg);
+                }
+            }
+        })
+        value.length || (this.value = oldvalue);
+    });
+    $("tbody").on('click','.dianji',function (){
+        let id = $(this).closest('tr').attr('id');
+        $.ajax({
+            url:'goodsremove.php',
+            type:'POST',
+            dataType:'json',
+            data:{id},
+            context:this,
+            success:function(res) {
+                if (res.code == 200){
+                    alert(res.msg);
+                    $('#'+id).remove();
+                }else{
+                    alert(res.msg);
+                }
+            }
+        })
+    });
+</script>
+</html>

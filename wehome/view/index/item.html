@@ -1,0 +1,60 @@
+
+    <title>产品详情</title>
+    <link rel="stylesheet" href="../static/css/item.css">
+
+    <!-- 中心内容 -->
+    <!-- banner -->
+    <div class="banner ">
+        <img src="./../static/img/item/banner.jpg " alt=" ">
+    </div>
+    <!-- item -->
+
+    <div class="title ">
+        <span><?php echo $result['gname']?></span>
+    </div>
+    <div class="container hhh">
+        <!-- <div class="row "> -->
+        <div class="swiper-container ddd " style="width: 50%;height:300px; ">
+
+            <div class="swiper-wrapper llbb ">
+                <?php
+                    foreach($gbanner as $content){
+                ?>
+                <div class="lunbo swiper-slide ">
+                    <img src="<?php echo $content ?> " alt=" ">
+                </div>
+                <?php } ?>
+            </div>
+            <div class="swiper-button-prev " style="left: 0 "></div>
+            <div class="swiper-button-next " style="right: 0 "></div>
+            <div class="swiper-pagination "></div>
+        </div>
+
+        <div class="word ">
+            <div class="item ">
+                <div class="price ">
+                    <span>市场价：￥<?php echo $result['mprice']?></span>
+                </div>
+                <div class="price1 ">
+                    <span>零售价：</span>
+                    <span class="buy-price ">￥<?php echo $result['sale']?></span>
+                </div>
+                <div class="line "></div>
+                <div class="state ">
+                    <span>库存状况：<?php echo $result['gstock']?></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wwword container">
+        <h2>商品介绍</h2>
+        <span style="font-size: 16px;color:rgb(128,128,128); "><?php echo $result['gdatail']?></span>
+    </div>
+
+
+</body>
+
+<script src="../static/js/item.js "></script>
+
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>添加商品</title>
+    <link rel="stylesheet" href="/thinkPHP/public/static/css/layui.css">
+</head>
+<body>
+<form class="layui-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">商品类别</label>
+        <div class="layui-input-block">
+            <select name="cid" lay-filter="aihao">
+                <option value="" selected=""></option>
+                {volist name="cate" id="v"}
+                <option value="{$v.id}">{$v.cname}</option>
+                {/volist}
+
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">商品名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="gname" placeholder="请输入2~6个字符" autocomplete="off" class="layui-input"
+                   lay-verify="required">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">市场价</label>
+        <div class="layui-input-block">
+            <input type="text" name="mprice" placeholder="请输入商品市场价格" autocomplete="off" class="layui-input"
+                   lay-verify="required|number">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">零售价</label>
+        <div class="layui-input-block">
+            <input type="number" name="sale" placeholder="请输入零售价" autocomplete="off" class="layui-input"
+                   lay-verify="required|number">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">库存</label>
+        <div class="layui-input-block">
+            <input type="text" name="gstock" placeholder="库存量" autocomplete="off" class="layui-input"
+                   lay-verify="required|number">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">缩略图 </label>
+
+        <div class="layui-input-block">
+            <button type="button" class="layui-btn" id="gthumb">上传图片</button>
+            <span>上传图片最佳尺寸xx*xx·最大不超过200K</span>
+            <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
+                预览图：
+                <div class="layui-upload-list" id="demo1">
+                    <!--<img src="" alt="" width="200" id="thumb">-->
+                    <input type="hidden" name="gthumb" value="" lay-verify="required">
+                </div>
+            </blockquote>
+        </div>
+
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">轮播图</label>
+        <div class="layui-input-block">
+            <div class="layui-upload">
+                <button type="button" class="layui-btn" id="gbanner">多图片上传</button>
+                <span>上传图片最佳尺寸xx*xx·最大不超过200K</span>
+                <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;">
+                    预览图：
+                    <div class="layui-upload-list" id="demo2">
+                        <input type="hidden" value name="gbanner" lay-verify="required">
+                    </div>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">详情</label>
+        <div class="layui-input-block">
+            <textarea name="gdatail" id="xiangqing"></textarea>
+            <!--<input type="text" name="gdatail" placeholder="商品详细信息" autocomplete="off" class="layui-input" lay-verify="required">-->
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="go">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+
+        </div>
+    </div>
+</form>
+<script src="/thinkPHP/public/static/layui.js"></script>
+<script>
+    layui.use(['form', 'layer', 'upload', 'layedit'], function () {
+        const HOSTNAME = '/thinkPHP/public/index.php/';
+        // let form = layui.form,$ = layui.$,layer = layui.layer,upload=layui.upload;
+        //解构赋值
+        let {$, form, upload, layer, layedit} = layui;
+        //富文本编辑器
+        // layedit.set({uploadImage: {url: HOSTNAME + 'admin/upload/index'}});
+        layedit.set({
+            uploadImage: {
+                url: HOSTNAME + 'admin/upload/index' //接口url
+            }
+        });
+        let index = layedit.build('xiangqing');
+
+        form.verify({
+            nname: function (value, item) { //value：表单的值、item：表单的DOM对象
+                if (!new RegExp("^[\u4e00-\u9fa5]+$").test(value)) {
+                    return '用户名不能有特殊字符';
+                }
+                if (/(^\_)|(\__)|(\_+$)/.test(value)) {
+                    return '用户名首尾不能出现下划线\'_\'';
+                }
+            }
+            //我们既支持上述函数式的方式，也支持下述数组的形式
+            //数组的两个值分别代表：[正则匹配、匹配不符时的提示文字]
+            , pass: [
+                /^[\S]{6,12}$/
+                , '密码必须6到12位，且不能出现空格'
+            ]
+        });
+        //单张图片上传
+        upload.render({
+            elem: '#gthumb'
+            , url: HOSTNAME + 'admin/upload/index'
+            , accept: 'images'
+            , acceptMime: 'images/*'
+            , size: 200
+            , done: function (res) {
+                if (res.code == 0) {
+                    $('<img>').attr('src', res.data.src).css('width', 200).appendTo('#demo1')
+                    // $('#thumb').attr('src',res.data.src);
+                    $('input[name=gthumb]').val((index, value) => value + res.data.src + ',');
+                }
+                //如果上传失败
+                if (res.code > 0) {
+                    layer.msg('上传失败');
+                }
+                //上传成功
+            }
+        })
+        //多图片上传
+        upload.render({
+            elem: '#gbanner'
+            , url: HOSTNAME + 'admin/upload/index'
+            , multiple: true
+            , done: function (res) {
+                //上传完毕
+                // $('<img>').attr('src',res.data.src).css('width',200).appendTo('#demo2')
+                $('#demo2').append('<img src="' + res.data.src + '" class="layui-upload-img" width="200">');
+                $('input[name=gbanner]').val(res.data.src);
+            }
+        });
+        form.on('submit(go)', function (data) {
+            let {field, form} = data;
+            delete field.file;
+            field.gbanner = field.gbanner.slice(0, -1);
+            field.gdatail = layedit.getContent(index);
+            // let qs=data.field;
+            // delete qs['file'];
+            // qs.gbanner = qs.gbanner.slice(0,-1);
+            $.ajax({
+                url: HOSTNAME + '/admin/Goods/insert',
+                type: 'POST',
+                data: field,
+                dataType: 'json',
+                success: function (res) {
+                    if (res.code == 200) {
+                        layer.msg(res.msg);
+                        $('input[type=hidden]').val('');
+                        $('img').remove();
+                        form.reset();
+                    }
+                }
+            });
+            return false;
+        })
+    });
+
+
+</script>
+</body>
+</html>

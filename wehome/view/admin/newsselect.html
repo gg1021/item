@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+    table input{
+        border: none;
+        outline: none;
+    }
+</style>
+<body>
+<ol class="breadcrumb">
+    <li>首页</li>
+    <li class="active">新闻添加<?php ?></li>
+</ol>
+
+<table class="table table-striped <?php echo count($result)?'':'hidden'; ?>">
+    <thead>
+        <tr>
+            <th>新闻名称</th>
+            <th>详细内容</th>
+            <th>发布日期</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+            <?php
+                foreach($result as $key =>$value){
+                    ?>
+                    <tr id="<?php echo $value['id'] ?>">
+                        <td>
+                            <input name="name" type="text" data-value="<?php echo $value['name']; ?>" value="<?php echo $value['name']; ?>">
+                        </td>
+                        <td>
+                            <input name="content" type="text" data-value="<?php echo $value['content']; ?>" value="<?php echo $value['content']; ?>">
+                        </td>
+                        <td>
+                            <input name="date" type="text" data-value="<?php echo $value['date']; ?>" value="<?php echo $value['date']; ?>">
+                        </td>
+                        <td>
+
+                            <button class="btn btn-danger dianji">删除</button>
+                            <!--<button class="btn btn-success">编辑</button>-->
+                        </td>
+                    </tr>
+            <?php
+                }
+            ?>
+    </tbody>
+</table>
+<div class="<?php echo !count($result)?'':'hidden'; ?>">暂无数据</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $("tbody").on('blur','input',function (){
+        let value = this.value;
+        let id = $(this).closest('tr').attr('id');
+        let type = this.name;
+        let oldvalue = this.dataset.value;
+        value.length && oldvalue != value && $.ajax({
+            url:'newschange.php',
+            type:'POST',
+            dataType:'json',
+            data:{id,value,type},
+            context:this,
+            success:function(res){
+                if (res.code == 200){
+                    alert(res.msg);
+                    $('data-value').val(value);
+                }else{
+                    alert(res.msg);
+                }
+            }
+        })
+        value.length || (this.value = oldvalue);
+    });
+    $("tbody").on('click','.dianji',function (){
+        let id = $(this).closest('tr').attr('id');
+        $.ajax({
+            url:'newsremove.php',
+            type:'POST',
+            dataType:'json',
+            data:{id},
+            context:this,
+            success:function(res) {
+                if (res.code == 200){
+                    alert(res.msg);
+                    $('#'+id).remove();
+                }else{
+                    alert(res.msg);
+                }
+            }
+        })
+    });
+</script>
+</html>

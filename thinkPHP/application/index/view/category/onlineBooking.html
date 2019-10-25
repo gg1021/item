@@ -1,0 +1,179 @@
+{include file='public/header' title='$title' /}
+    <link rel="stylesheet" href="__CSS_PATH__在线预约.css">
+
+    <!-- 在线预约部分的开始 -->
+    <div class="container">
+        <div class="box">
+            <!-- 身体图片开始 -->
+            <div class="row tupian">
+                <img src="__IMAGES_PATH__aboutus/aboutus1" alt="图片加载失败">
+            </div>
+            <!-- 身体图片结束 -->
+            <!-- 身体关于我们标题开始 -->
+            <div class="row aboutus-title">
+                <div class="column aboutus-title-left "></div>
+                <div class="column aboutus-title-midddle">
+                    <div class="aboutus-title-midddle-zw">在线预约</div>
+                    <div class="aboutus-title-midddle-yw">Online Appointment</div>
+                </div>
+                <div class="column aboutus-title-right"></div>
+            </div>
+            <!-- 选项卡的开始 -->
+            <div class="option">
+                <div class="content">
+                    <div class="service">
+                        <span>预约服务：</span>
+                        <div class="service-select">
+                            <select>
+                                 <option selected>定制餐桌</option> 
+                                 <option>定制沙发</option> 
+                                 <option>其他家具</option>
+                             </select>
+                        </div>
+                    </div>
+                    <div style="clear: both"></div>
+                    <!-- 预约日期 -->
+                    <div class="data">
+                        <span>预约日期：</span>
+
+                        <div class="data-select">
+                            <select>
+                                     <option selected>年</option> 
+                                     <option>2026</option> 
+                                     <option>2025</option>
+                                     <option>2024</option> 
+                                     <option>2023</option>
+                                     <option>2022</option> 
+                                     <option>2021</option>
+                                     <option>2020</option> 
+                                     <option>2019</option>
+                 
+                                 </select>
+
+                            <select>
+                                         <option selected>月</option> 
+                                         <option>一月</option> 
+                                         <option>二月</option>
+                                         <option>三月</option> 
+                                         <option>四月</option>
+                                         <option>五月</option> 
+                                         <option>六月</option>
+                                         <option>七月</option> 
+                                         <option>八月</option>
+                                         <option>九月</option> 
+                                         <option>十月</option>
+                                         <option>十一月</option> 
+                                         <option>十二月</option>
+                                     </select>
+
+                            <select>
+                                             <option selected>日</option> 
+                                             <option>1</option> 
+                                             <option>2</option>
+                                             <option>3</option> 
+                                             <option>4</option>
+                                             <option>5</option> 
+                                             <option>6</option>
+                                             <option>7</option> 
+                                             <option>8</option>
+                                             <option>9</option> 
+                                             <option>10</option>
+                                             <option>11</option> 
+                                             <option>12</option>
+                                             <option>13</option> 
+                                             <option>14</option>
+                                             <option>15</option> 
+                                             <option>16</option>
+                                             <option>17</option> 
+                                             <option>18</option>
+                                             <option>19</option> 
+                                             <option>20</option>
+                                             <option>21</option>
+                                             <option>22</option> 
+                                             <option>23</option>
+                                             <option>24</option> 
+                                             <option>25</option>
+                                             <option>26</option> 
+                                             <option>27</option>
+                                             <option>28</option> 
+                                             <option>29</option>
+                                             <option>30</option> 
+                                             <option>31</option>
+                                         </select>
+
+                            <div class="calendar">
+                                <input type="date" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: both"></div>
+                    <!-- 姓名 -->
+                    <div class="name">
+                        <span>您的姓名：</span>
+                        <div class="name-input">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div style="clear: both"></div>
+
+                    <!-- 性别 -->
+                    <div class="sex">
+                        <span>您的性别：</span>
+                        <div class="sex-input">
+                            <input id="nan" type="radio" name="gender" value=""> 男
+                            <input id="nv" type="radio" name="gender" value=""> 女
+                        </div>
+                    </div>
+                    <div style="clear: both"></div>
+
+                    <!-- 电话 -->
+                    <div class="phone">
+                        <span>您的电话：</span>
+                        <div class="phone-input">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div style="clear: both"></div>
+
+                    <!-- 补充说明 -->
+                    <div class="explain">
+                        <span>补充说明：</span>
+                        <div class="explain-text">
+                            <textarea name="" id="" cols="39" rows="3" style="border: 1px solid #E1E1E1 !important"></textarea>
+                        </div>
+                    </div>
+                    <div style="clear: both"></div>
+
+                    <!-- 验证码 -->
+                    <div class="Verification">
+                        <span>验证码：</span>
+
+                        <div class="Verification-input">
+                            <input type="text" id="code_input" value="" placeholder="请输入验证码" />
+                        </div>
+                        <div class="cancasa">
+                            <canvas id="canvas1" style="width: 120px; height: 50px;"></canvas>
+                        </div>
+                    </div>
+                    <div style="clear: both"></div>
+
+                    <!-- 提交-->
+                    <div class="Submission">
+                        <button>提交预约</button>
+                    </div>
+                    <div style="clear: both"></div>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="__JS_PATH__online.js"></script>
+{include file='public/bottom'/}

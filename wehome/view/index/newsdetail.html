@@ -1,0 +1,66 @@
+
+    <title>新闻资讯</title>
+
+    <!--<link rel="stylesheet" href="./css/news.css">-->
+    <link rel="stylesheet" href="../static/css/newsdetail.css">
+</head>
+
+
+<body>
+<!-- 背景 -->
+<div class=" container ">
+    <div class=" row ">
+        <div class=" beijing ">
+            <div class=" beijing-2 ">
+                <!-- 图片 -->
+                <div class=" tupian ">
+                    <img src="../static/img/news/1.png " alt=" src ">
+                </div>
+                <!-- 养护知识开始 -->
+                <div class=" fg ">
+                    <div class=" fg-left "></div>
+                    <div class=" flow ">
+                        <div class=" top ">新闻资讯</div>
+                        <div class=" down ">Knowledgement</div>
+                    </div>
+                    <div class=" fg-right "></div>
+                </div>
+                <!-- 养护知识结束 -->
+                <!-- 内容开始 -->
+                <div class=" wenben col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                    <div class="wenben-1 ">
+                        <div class="xiuche "><?php echo $result['name']?></div>
+                        <div class="riqi ">发布日期： <?php echo $result['date']?></div>
+                        <div class="qiche ">
+                            <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $result['content'] ?></span>
+                        </div>
+                        <div class=" dianji ">
+                            <div class=" left "><?php echo $prevsql?></div>
+                            <div class=" right "><?php echo $nextsql?></div>
+                        </div>
+                        <!-- 返回按钮 -->
+                        <div class="return "> <a href="category.php?id=<?php echo $nav['id']?>">返回列表</a></div>
+                <!-- 返回按钮结束 -->
+            </div>
+            </div>
+
+            
+
+        <div class=" kong ">
+
+        </div>
+        <div class=" tupian ">
+            <div class=" tpbj " style="padding: 35px;padding-bottom: 0; ">
+                <img src="../static/img/news/2.png " alt=" src ">
+            </div>
+        </div>
+        <!-- 内容结束 -->
+
+        <!-- 背景结束 -->
+    </div>
+</div>
+</div>
+</div>
+</body>
+<script src=" ../static/js/common.js "></script>
+</html5

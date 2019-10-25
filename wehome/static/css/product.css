@@ -1,0 +1,221 @@
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    p {
+        margin: 0;
+    }
+    
+    .container {
+        padding: 0 73px;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    /* banner */
+    
+    .images {
+        margin-top: 20px;
+        width: 100%;
+    }
+    
+    .images img {
+        width: 100%;
+    }
+    /* 标题 */
+    
+    .b-box {
+        width: 100%;
+        padding: 20px 15px 0;
+    }
+    
+    .title {
+        padding: 0 15px;
+        position: relative;
+        width: 100%;
+        margin: 20px auto;
+        text-align: center;
+    }
+    
+    .title .line-left {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: block;
+        height: 1px;
+        width: 41%;
+        background-color: #d6d6d6;
+    }
+    
+    .word .main {
+        font-size: 32px;
+        color: #333333;
+    }
+    
+    .word .sub {
+        font-size: 14px;
+        color: #a5a5a5;
+    }
+    
+    .title .line-right {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        display: block;
+        height: 1px;
+        width: 41%;
+        background-color: #d6d6d6;
+    }
+    
+    .title .word {
+        margin: 0 auto;
+    }
+    /* 列表 */
+    
+    .L-box {
+        padding: 0 20px;
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+    
+    ul.list {
+        position: relative;
+        margin: 0 0 20px 0;
+        padding-left: 5px;
+        width: 100%;
+        height: 520px;
+        float: left;
+    }
+    
+    .list>.items {
+        float: left;
+        margin: 0 10px 10px 0;
+        font-size: 16px;
+        color: #F0443A;
+    }
+    
+    .content {
+        position: absolute;
+        top: 32px;
+        left: 0;
+        width: 100%;
+        margin-top: 10px;
+        display: none;
+    }
+    
+    .box-style {
+        display: block;
+    }
+    
+    .active {
+        text-decoration: underline dotted;
+    }
+    
+    .shop {
+        float: left;
+        width: 25%;
+        height: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .shoplist {
+        padding: 0 5px 5px 5px;
+    }
+    
+    .shoppic {
+        padding: 0 22px 10px;
+    }
+    
+    .shoppicture {
+        box-sizing: border-box;
+        /* border: 1px solid #8d9095; */
+        /* padding: 10px 0; */
+        width: 214px;
+        height: 214px;
+    }
+    
+    a {
+        display: block;
+        float: left;
+    }
+    
+    .shopword {
+        width: 100%;
+        float: left;
+        text-align: center;
+    }
+    
+    .word1 {
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+        color: #373A41;
+        font-weight: 700;
+    }
+    
+    .word1:hover {
+        color: red;
+        text-decoration: none;
+    }
+    
+    .item>.content1 {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        margin-top: 10px;
+        display: none;
+    }
+    /*  */
+    
+    @media only screen and (max-width:1200px) and (min-width:992px) {
+        .container {
+            padding: 0;
+        }
+    }
+    
+    @media only screen and (max-width:992px) {
+        .container {
+            padding: 0;
+        }
+        .images {
+            margin-top: 135px;
+        }
+        .title1 {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .b-box {
+            padding: 20px 0;
+        }
+        .content {
+            padding: 0 27%;
+            transition: all 1s;
+            margin-bottom: 44px;
+        }
+        .list1 {
+            height: 1850px;
+        }
+        .shop {
+            clear: left;
+            width: 246px;
+            transition: all 1s;
+        }
+    }
+    
+    @media only screen and (max-width:768px) {
+        .word .main {
+            font-size: 20px;
+            transition: all 1s;
+        }
+        .word .sub {
+            font-size: 20px;
+            color: #a5a5a5;
+            transition: all 1s;
+        }
+    }

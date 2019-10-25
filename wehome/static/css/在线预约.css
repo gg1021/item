@@ -1,0 +1,468 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+input{
+    outline:none;  
+    border:1px solid #E1E1E1 !important;
+}
+
+/* 容器 */
+
+    
+.public{
+    width: 100%;
+    height: 90px;
+    background-color: black;
+    margin-bottom: 20px;
+}
+/* 预留公共部分的结束 */
+
+/* 在线预约的开始 */
+.bit_main_content{
+    width: 100%;
+    padding-top: 60px;
+    height: 100%;
+    margin-bottom: 170px;
+}
+
+ /* 在线预约广告图的开始  */
+
+ .box {
+    max-width: 1024px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.tupian {
+    margin: auto;
+}
+
+.tupian img {
+    width: 100%;
+    height: 100%;
+}
+ /* 在线预约广告图的结束  */
+
+ /* 在线预约标题的开始 */
+ .aboutus-title {
+    margin-top: 20px;
+    padding: 40px 20px 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.aboutus-title-left {
+    width: 35%;
+    border: 1px solid #d6d6d6;
+}
+
+.aboutus-title-middle {
+    margin: 0 auto;
+}
+
+.aboutus-title-midddle-zw {
+    font-size: 32px;
+    font-family: 微软雅黑;
+    color: #333333;
+}
+
+.aboutus-title-midddle-yw {
+    font-size: 14px;
+    color: #a5a5a5;
+    text-align: center;
+}
+
+.aboutus-title-right {
+    width: 35%;
+    border: 1px solid #d6d6d6;
+}
+  /* 在线预约标题的结束 */
+ .option{
+    width: 1024px;
+    height: 391px;
+    margin: auto;
+ }
+ .content{
+     width: 492px;
+     height: 391px;
+     margin: 0 auto;
+
+ }
+.service{
+    width: 482px;
+    height: 37px;
+    padding: 0 0 10px;
+    box-sizing: border-box;
+}
+.service>span{
+    width: 100px;
+    font-size: 16px;
+    line-height:30px;
+    color: rgb(41, 41, 41);
+    padding: 0 0 10px;
+    float: left;
+    box-sizing: border-box;
+}
+.service-select{
+    width: 382px;
+    height: 27px;
+    margin: 0 0 0 100px;
+    padding: 0 0 0 10px;
+}
+.service-select select{
+    border-radius: 5px;
+    width: 84px;
+    height: 24px;
+    color: #555555;
+    background-color: #ffffff;
+    margin: 0 0 2px;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+/* riqi */
+.data{
+    width: 482px;
+    height: 37px;
+    padding: 0 0 10px;
+    box-sizing: border-box;
+}
+.data>span{
+    width: 100px;
+    font-size: 16px;
+    line-height:30px;
+    color: rgb(41, 41, 41);
+    padding: 0 0 10px;
+    float: left;
+    box-sizing: border-box;
+}
+.data-select{
+    width: 382px;
+    height: 27px;
+    margin: 0 0 0 100px;
+    padding: 0 0 0 10px;
+}
+.data-select select{
+    border-radius: 5px;
+    width: 70px;
+    height: 24px;
+    color: #555555;
+    background-color: #ffffff;
+    margin: 0 0 2px;
+    padding: 2px;
+    float: left;
+}
+.calendar input{
+    width: 90px;
+    float: left;
+}
+
+/* 姓名 */
+.name{
+    width: 482px;
+    height: 37px;
+    padding: 0 0 10px;
+    box-sizing: border-box;
+}
+.name>span{
+    width: 100px;
+    font-size: 16px;
+    line-height:30px;
+    color: rgb(41, 41, 41);
+    padding: 0 0 10px;
+    float: left;
+    box-sizing: border-box;
+}
+.name-input{
+    width: 382px;
+    height: 27px;
+    margin: 0 0 0 100px;
+    padding: 0 0 0 10px;
+}
+.name-input>input{
+    border-radius: 5px;
+    width: 297.59px;
+    height: 24px;
+    margin: 0 0 3px;
+    padding: 2px;
+}
+/* 性别  */
+.sex{
+    width: 482px;
+    height: 37px;
+    padding: 0 0 10px;
+    box-sizing: border-box;
+}
+.sex>span{
+    width: 100px;
+    font-size: 16px;
+    line-height:30px;
+    color: rgb(41, 41, 41);
+    padding: 0 0 10px;
+    float: left;
+    box-sizing: border-box;
+}
+.sex-input{
+    width: 382px;
+    height: 27px;
+    margin: 0 0 0 100px;
+    padding: 0 0 0 10px;
+    
+}
+.sex-input>input{
+    border-radius: 5px;
+    width: 17px;
+    height: 17px;
+}
+
+/* 电话 */
+.phone{
+    width: 482px;
+    height: 37px;
+    padding: 0 0 10px;
+    box-sizing: border-box;
+}
+.phone>span{
+    width: 100px;
+    font-size: 16px;
+    line-height:30px;
+    color: rgb(41, 41, 41);
+    padding: 0 0 10px;
+    float: left;
+    box-sizing: border-box;
+}
+.phone-input{
+    width: 382px;
+    height: 27px;
+    margin: 0 0 0 100px;
+    padding: 0 0 0 10px;
+}
+.phone-input>input{
+    border-radius: 5px;
+    width: 297.59px;
+    height: 24px;
+    margin: 0 0 3px;
+    padding: 2px;
+}
+/* 补充说明 */
+.explain{
+    width: 482px;
+    height: 76px;
+    padding: 0 0 10px;
+    box-sizing: border-box;
+}
+.explain>span{
+    width: 100px;
+    font-size: 16px;
+    line-height:30px;
+    color: rgb(41, 41, 41);
+    padding: 0 0 10px;
+    float: left;
+    box-sizing: border-box;
+}
+.explain-text{
+    width: 382px;
+    height: 27px;
+    margin: 0 0 0 100px;
+    padding: 0 0 0 10px;
+}
+.explain-text>textarea{
+    border-radius: 5px;
+    max-width: 382px;
+    height: 63px;
+    margin: 0 0 3px;
+    padding: 2px;
+}
+/* 验证码 */
+.Verification{
+    width: 482px;
+    height: 77px;
+    padding: 0 0 10px;
+
+}
+.Verification>span{
+    width: 100px;
+    font-size: 16px;
+    line-height:30px;
+    color: rgb(41, 41, 41);
+    padding: 0 0 10px;
+    float: left;
+    box-sizing: border-box;
+}
+.Verification-input{
+    width: 382px;
+    height: 27px;
+    margin: 0 0 0 100px;
+    padding: 0 0 0 10px;
+    box-sizing: border-box;
+}
+.Verification-input>input{
+    border-radius: 5px;
+    width: 297.59px;
+    height: 24px;
+    margin: 0 0 3px;
+    padding: 2px;
+    box-sizing: border-box;
+}
+.cancasa{
+    width: 382px;
+    height: 27px;
+    margin: 0 0 0 100px;
+    padding: 0 0 0 10px;
+    box-sizing: border-box;
+}
+/* 提交 */
+.Submission{
+    width: 482px;
+    height: 28px;
+    padding: 0 0 10px;
+    box-sizing: border-box;
+}
+.Submission>button{
+    user-select: none;
+    width: 100px;
+    height: 27px;
+    text-align: center;
+    font-size: 14px;
+    line-height:27px;
+    color: white;
+    padding: 0 0 10px;
+    float: left;
+    box-sizing: border-box;
+    background-color: rgb(49, 49, 49);
+}
+
+
+
+@media only screen and (max-width:992px) {
+    .tupian {
+        max-width: 768px;
+        height: auto;
+    }
+    .aboutus-title {
+        max-width: 768px;
+        height: auto;
+    }
+    .people-first {
+        margin: 0 auto;
+        width: 45%;
+    }
+    .option{
+        width: 100%;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+    .with-logo {
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: black;
+        border-bottom: 1px solid #333333;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        z-index: 9200;
+    }
+    .with-logo-content {
+        height: 90px;
+        min-height: 90px;
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+    .logo-img {
+        width: 100%;
+    }
+    .logo-img a {
+        width: 100%;
+    }
+    .logo-img>a>img {
+        display: block;
+        margin: 0 auto;
+        width: 173px;
+        max-height: 52px;
+    }
+    .headlist {
+        display: none;
+    }
+    .show {
+        display: block;
+        position: absolute;
+        top: 91px;
+        background-color: #f0443a;
+        border: 1px solid #f0443a;
+        width: 100%;
+        height: 44px;
+        z-index: 99;
+    }
+    .show a {
+        list-style: none;
+        color: #fff;
+    }
+    .show a:hover {
+        text-decoration: none;
+    }
+    .show a>span {
+        display: inline-block;
+        line-height: 44px;
+        margin-left: 24px;
+    }
+    .show a>.jiantou {
+        color: #fff;
+        display: block;
+        float: right;
+        margin-right: 22px;
+    }
+    .show a>.off {
+        display: inline-block;
+        line-height: 44px;
+        margin-left: 24px;
+        display: none;
+    }
+    .yuyue {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        background-color: #f0443a;
+        border: 1px solid #f0443a;
+        width: 100%;
+        height: 44px;
+        z-index: 99;
+        text-align: center;
+        line-height: 44px;
+    }
+    .yuyue a {
+        list-style: none;
+        color: #fff;
+    }
+    .yuyue a:hover {
+        text-decoration: none;
+    }
+    .yuyue a>span {
+        display: inline-block;
+        line-height: 44px;
+        margin-left: 24px;
+    }
+    .footer-content-box {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .pcimg{
+        width: 100%;
+        max-height: 275.36px;
+        margin: 0 auto;
+        margin-top:50px;
+    }
+    .title-content-wenzi{
+           font-size: 20px;
+            transition: all 1s;
+    }
+    .title-content-yinwen{
+        font-size: 20px;
+            transition: all 1s;
+    }
+
+}

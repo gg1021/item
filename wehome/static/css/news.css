@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    user-select: none;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+
+/* 头部图片 */
+
+.img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.img>img {
+    width: 100%;
+    clear: both;
+}
+
+
+/* 养护知识 */
+
+.conserve {
+    position: relative;
+    width: 100%;
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.conserve-text {
+    width: 200px;
+    max-width: 1000px;
+    font-family: 微软雅黑;
+    font-size: 32px;
+    text-align: center;
+}
+
+.con-text-eng {
+    color: #a5a5a5;
+    font-size: 12px;
+}
+
+.conserve-wire {
+    /* width: 1000px; */
+    max-width: 1000px;
+    border-bottom-width: 1000px;
+    height: 1px;
+    overflow: hidden;
+    background-color: #d6d6d6;
+    margin-top: 30px;
+}
+
+.message {
+    width: 100%;
+    margin-top: 30px;
+    padding: 0 35px;
+    clear: both;
+}
+
+.message-content {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 8px;
+    margin-bottom: 13px;
+    border-bottom: solid 1px #c6c6c6;
+    color: #d6d6d6;
+    font-size: 13px;
+    line-height: 13px;
+}
+
+.message-content>div>a {
+    color: #333;
+    text-decoration: none;
+}
+
+.message-content:hover {
+    color: red;
+}
+
+.message-content:hover a {
+    color: red;
+}
+
+.img1 {
+    padding: 0 35px;
+    padding-top: 35px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+@media screen and (max-width:1200px) {
+    .conserve {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .message-content {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .conserve-text {
+        font-size: 20px;
+    }
+    .con-text-eng {
+        font-size: 20px;
+    }
+}
+
+
+/* targrt    current    speed   
+dot.forEach*/

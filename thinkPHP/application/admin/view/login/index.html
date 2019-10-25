@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/thinkPHP/public/static/css/layui.css">
+    <script src="/thinkPHP/public/static/layui.js"></script>
+</head>
+<style>
+    html{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        /*font-style: sans-serif;*/
+    }
+    body{
+        width: 100%;
+        height: 100%;
+        font-family: 'Open Sans',sans-serif;
+        margin: 0;
+        background-color: #4A374A;
+    }
+    #login{
+        position: absolute;
+        top: 50%;
+        left:50%;
+        margin: -150px 0 0 -150px;
+        width: 300px;
+        height: 300px;
+    }
+    #login h1{
+        color: #fff;
+        text-shadow:0 0 10px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+    h1{
+        font-size: 2em;
+        margin: 0.67em 0;
+    }
+    input{
+        width: 278px;
+        height: 18px;
+        margin-bottom: 10px;
+        outline: none;
+        padding: 10px;
+        font-size: 13px;
+        color: #fff;
+        text-shadow:1px 1px 1px;
+        border-top: 1px solid #312E3D;
+        border-left: 1px solid #312E3D;
+        border-right: 1px solid #312E3D;
+        border-bottom: 1px solid #56536A;
+        border-radius: 4px;
+        background-color: #2D2D3F;
+    }
+    .but{
+        width: 300px;
+        min-height: 20px;
+        display: block;
+        background-color: #4a77d4;
+        border: 1px solid #3762bc;
+        color: #fff;
+        padding: 9px 14px;
+        font-size: 15px;
+        line-height: normal;
+        border-radius: 5px;
+        margin: 0;
+    }
+</style>
+<body>
+<div id="login">
+    <h1>Login</h1>
+    <form method="post" class="layui-form">
+        <div class="layui-form-item">
+
+            <div class="layui-input-block">
+                <input type="text" required="required" placeholder="用户名" name="username" autocomplete="off" value=""></input>
+            </div>
+        </div>
+        <div class="layui-form-item">
+
+            <div class="layui-input-block">
+                <input type="password" required="required" placeholder="密码" name="password" autocomplete="off" value=""></input>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <img src="{:captcha_src()}" alt="captcha" onclick="this.src=this.src+'?'+Date.now()"/>
+                <input type="text"   placeholder="验证码">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="go">立即提交</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    //Demo
+    const HOSTNAME = '/thinkPHP/public/index.php';
+    layui.use(['form'], function(){
+        var form = layui.form,$=layui.$;
+        //监听提交
+        form.on('submit(go)', function(data){
+            $.ajax({
+                url:HOSTNAME+'/admin/login/check',
+                data:data.field,
+                type:'post',
+                dataType:'json',
+                success:function (res) {
+                    if (res.code== 404){
+                        alert(res.msg);
+                    }
+                    if (res.code == 0){
+                        location.replace(HOSTNAME+'/admin/main/index')
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

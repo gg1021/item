@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新闻资讯</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/news.css">
+</head>
+<style>
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+    .beijing {
+        padding: 0 100px;
+        box-sizing: border-box;
+    }
+    
+    .wenben {
+        width: 100%;
+        padding-bottom: 100px;
+    }
+    
+    .wenben-1 {
+        width: 100%;
+        clear: both;
+    }
+    
+    .xiuche {
+        font-size: 32px;
+        color: #000000;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    @media screen and (max-width:768px) {
+        .xiuche {
+            transition: 1s;
+            font-size: 20px;
+        }
+        .beijing {
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .dianji>.right {
+            display: block;
+            float: left;
+        }
+    }
+    
+    .riqi {
+        /* background-color: rgb(159, 43, 226); */
+        margin-bottom: 65px;
+        font-size: 14px;
+        color: #000000;
+        text-align: center;
+        overflow: hidden;
+    }
+    
+    .qiche {
+        /* width: 964px; */
+        /* background-color: rgb(214, 226, 43); */
+        font-size: 14px;
+        margin-bottom: 36px;
+    }
+    
+    .baochi {
+        /* width: 964px; */
+        /* background-color: rgb(43, 226, 150); */
+        font-size: 14px;
+        margin-bottom: 36px;
+    }
+    
+    .dianji {
+        /* width: 964px; */
+        height: 32px;
+        /* background-color: blue; */
+        margin: 45px 0;
+    }
+    
+    .dianji>.left>a {
+        color: red;
+    }
+    
+    .dianji>.right>a {
+        color: red;
+    }
+    
+    .left {
+        /* width: 482px; */
+        height: 32px;
+        /* background-color: blueviolet; */
+        float: left;
+        font-size: 14px;
+        line-height: 32px;
+    }
+    
+    .right {
+        /* width: 482px; */
+        height: 32px;
+        /* background-color: blueviolet; */
+        float: right;
+        font-size: 14px;
+        line-height: 32px;
+        text-align: right;
+    }
+    
+    .return {
+        width: 138px;
+        height: 62px;
+        background-color: white;
+        margin: 88px auto 0;
+        font-size: 24px;
+        color: #070202;
+        line-height: 62px;
+        text-align: center;
+        border: solid 1px #2A2A2A;
+        /* padding: 13px 19px; */
+    }
+    
+    .return:hover {
+        background-color: #2A2A2A;
+    }
+    
+    .return a {
+        color: #0f0000;
+        /* text-decoration: none; */
+        /* transition: 0.5s; */
+    }
+    
+    .return a:hover {
+        color: white;
+    }
+    
+    .return a:link {
+        text-decoration: none;
+    }
+    
+    .dianji a:link {
+        text-decoration: none;
+    }
+    
+    .down {
+        height: 30px;
+        width: 100%;
+        line-height: 30px;
+        font-size: 14px;
+        color: #a5a5a5;
+    }
+    
+    .top {
+        height: 36px;
+        width: 100%;
+        line-height: 36px;
+        font-family: 微软雅黑;
+        font-size: 32px;
+        color: #333333;
+        margin-top: 30px;
+        width: 180px;
+    }
+    
+    .fg {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+    }
+    
+    .fg-left {
+        height: 62px;
+        width: calc(50% - 90px);
+        border-bottom: solid 1px #d6d6d6;
+        text-align: center;
+        line-height: 125px;
+        float: left;
+    }
+    
+    .fg-right {
+        height: 62px;
+        width: calc(50% - 90px);
+        float: right;
+        border-bottom: solid 1px #d6d6d6;
+        float: left;
+    }
+    
+    .tupian {
+        width: 100%;
+        height: 100%;
+        display: block;
+        /* background-color: aquamarine; */
+        margin: 30px auto 0;
+    }
+    
+    .tupian img {
+        width: 100%;
+        /* height: 204.79px; */
+    }
+    
+    @media screen and (max-width:768px) {
+        .top {
+            transition: 1s;
+            font-size: 20px;
+        }
+        .down {
+            transition: 1s;
+            font-size: 20px;
+        }
+    }
+</style>
+
+<body>
+    <!-- 头部导航开始 -->
+    <a name="top"></a>
+    <!-- 导航浮出效果 -->
+    <div class="hd-up animated">
+        <div class="ttt">
+            <div class="logo-" style="height: 57.6px">
+                <div class="logo" style="padding: 10px 10px 10px 0;">
+                    <img src="./img/common/logo.png" alt="logo" style="width: 115.89px;">
+                </div>
+            </div>
+            <ul class="menu" style="height: 57.6px;padding: 10px 0;box-sizing: border-box;">
+                <div class="menu-">
+                    <li class="menu-item"><a href="#">首页</a></li>
+                    <li class="menu-item"><a href="#">关于我们</a></li>
+                    <li class="menu-item"><a href="#">产品中心</a></li>
+                    <li class="menu-item"><a href="#">服务项目</a></li>
+                    <li class="menu-item"><a href="#" style="color: #FF6000;">新闻资讯</a></li>
+                    <li class="menu-item"><a href="#">在线预约</a></li>
+                </div>
+
+            </ul>
+        </div>
+    </div>
+    <!-- 头部开始 -->
+    <header>
+        <div class="ttt">
+            <nav>
+                <div class="logo-">
+                    <div class="logo">
+                        <img src="./img/common/logo.png" alt="logo">
+                    </div>
+                </div>
+                <ul class="menu">
+                    <div class="menu-">
+                        <li class="menu-item">
+                            <a href="./index.html" ">首页</a></li>
+                        <li class=" menu-item "><a href=" ./aboutus.html ">关于我们</a></li>
+                        <li class=" menu-item "><a href=" ./item.html ">产品中心</a></li>
+                        <li class=" menu-item "><a href=" ./fuwuxiangmu.html ">服务项目</a></li>
+                        <li class=" menu-item "><a href=" ./news.html "  style=" color: #FF6000; ">新闻资讯</a>
+                        </li>
+                        <li class=" menu-item "><a href="OnlineBooking.html ">在线预约</a></li>
+                    </div>
+
+                </ul>
+            </nav>
+            <div class=" menu-bar-top ">
+                <div class=" bar-up ">
+                    <a href=" # " class=" menu-bar-top-text ">
+                        <span>新闻资讯</span>
+                        <i class=" iconfonticonxialajiantou "></i>
+                    </a>
+                </div>
+                <div class=" bar-up " style=" display: none ">
+                    <a href=" # " class=" menu-bar-top-text ">
+                        <span>关闭</span>
+                        <i class=" iconfont iconxialajiantou "></i>
+                    </a>
+                </div>
+                <!-- <div class=" kong col-xs-2 "></div> -->
+                <div class=" bar-down ">
+                    <a href=" ./index.html " class=" menu-bar-top-text first ">
+                        <span>首页</span>
+                    </a>
+                    <a href=" ./aboutus.html " class=" menu-bar-top-text first ">
+                        <span>关于我们</span>
+                    </a>
+                    <a href=" ./item.html " class=" menu-bar-top-text first ">
+                        <span>产品中心</span>
+                    </a>
+                    <a href=" ./fuwuxiangmu.html " class=" menu-bar-top-text first ">
+                        <span>服务项目</span>
+                    </a>
+                    <a href=" ./news.html " class=" menu-bar-top-text first ">
+                        <span>新闻资讯</span>
+                    </a>
+                    <a href="OnlineBooking.html " class=" menu-bar-top-text first ">
+                        <span>在线预约</span>
+                    </a>
+                </div>
+                <!-- <div class=" kong col-xs-2 "></div> -->
+
+            </div>
+            <div class=" menu-bar-bottom ">
+                <a href=" # ">
+                    <span>在线预约</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- 头部结束 -->
+    <div style=" width: 100%;height:90px "></div>
+<!-- 背景 -->
+<div class=" container ">
+    <div class=" row ">
+        <div class=" beijing ">
+            <div class=" beijing-2 ">
+                <!-- 图片 -->
+                <div class=" tupian ">
+                    <img src="./img/news/1.png " alt=" src ">
+                </div>
+                <!-- 养护知识开始 -->
+                <div class=" fg ">
+                    <div class=" fg-left "></div>
+                    <div class=" flow ">
+                        <div class=" top ">养护知识</div>
+                        <div class=" down ">Knowledgement</div>
+                    </div>
+                    <div class=" fg-right "></div>
+                </div>
+                <!-- 养护知识结束 -->
+                <!-- 内容开始 -->
+                <div class=" wenben col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                    <div class="wenben-1 ">
+                        <div class="xiuche ">封边知识</div>
+                        <div class="riqi ">发布日期： 2015-01-20 12:03</div>
+                        <div class="qiche ">
+                            <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp定制类板式家具在选择时要注意的工艺主要包括裁板、打孔和封边，今天我们就讲一下封边工艺和材质，从材质上来区别封边条的好坏及其各自的优劣处，还将会说明封边和甲醛相关的一些信息。 典型的封边工艺流程如下：喷防粘剂，齐边铣削，工件预热，涂胶，施压封边，封边条剪断，前后截断，上下粗修，上下精修，跟踪修，刮修，铲胶层，布轮抛光，质量检验。好的封边机在上述工艺流程中都是一次成型的，所采用的胶水是环保达标的热熔胶，从喷防粘剂到后面的布轮抛光是一次成型的。负责任的家具工厂也将会把板材的四个边都进行封边处理，而不只是封消费者能看到的一边或两边。关于封边与甲醛：经常会听到板式家具，或是整体家具（即整体衣柜、入墙衣柜、定制家具）的销售人员说封边如何如何的好，不好的封边工艺如何又影响甲醛含量之类的，其实这样介绍不够准确和严谨，因为板材够不够环保是和甲醛含量有关，但是和封边与否无直接关系，好的封边或是多面封边只是可以把甲醛单位时间内的排放量减少（即排放速度减缓），而不会把板材的甲醛含量减小，这样做的好处是可以把不够环保（如E2级）的板材单位时间内甲醛排放降至人类可以接受而不会影响健康的程度。
+                            </span>
+                        </div>
+                        <div class="baochi ">
+                            <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp正常情况下，一块车载电瓶的使用寿命为4年，而电瓶寿命的长短与气候情况以及车主的使用习惯也有很大的关系。常见的折损电瓶寿命的因素包括：空 气湿度、灰尘、腐蚀、电极松动或过紧、磨损以及汽车电缆的损坏。在极端情况下，这些因素都可能引起电瓶破裂甚至是更加严重的事故，而湿度和灰尘则被认作是 两个最常见的罪魁祸首。</span>
+                        </div>
+                        <div class="baochi ">
+                            <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp保持电池的干净整洁，并进行定期检测是延长汽车电瓶使用寿命的有效手段，而对汽车电瓶的清洁不同于日常物品，仅用抹布外加清洁用油进行擦拭还远远不够。</span>
+                        </div>
+                        <div class="dianji ">
+                            <div class="left "><a href="news-five.html ">上一篇&nbsp实木皮饰面</a></div>
+                            <div class="right "><a href="news-one.html ">下一篇&nbsp实木指接板</a></div>
+                        </div>
+                        <!-- 返回按钮 -->
+                        <div class="return "> <a href="news.html ">返回列表</div>
+                <!-- 返回按钮结束 -->
+            </div>
+            </div>
+
+            
+
+        <div class=" kong ">
+
+        </div>
+        <div class=" tupian ">
+            <div class=" tpbj " style="padding: 35px;padding-bottom: 0; ">
+                <img src="./img/news/2.png " alt=" src ">
+            </div>
+        </div>
+        <!-- 内容结束 -->
+
+        <!-- 背景结束 -->
+    </div>
+</div>
+</div>
+</div>
+    <div style=" width: 100%;height:120px "></div>
+    <!-- 底部开始 -->
+    <footer>
+        <div class=" hhh container ">
+            <div class=" row ">
+                <div class=" footer- col-md-4 ">
+                    <h5 style=" color: #FF6000 "><b>一店地址</b></h5>
+                    <div class=" kong " style=" height: 24px; "></div>
+                    <p>门店地址：上海市松江区佘山林荫大道18号</p>
+                    <p>预约电话：<strong style=" color:#FF6000; ">400-562-6654 </strong></p>
+                    <div class=" kong " style=" height: 24px; "></div>
+                    <strong style=" font-size:15px;color:#7f7d7d; ">营业时间：</strong>
+                    <p style=" font-size: 12px ">周一 ~周五：上午9:30-下午8:00 </p>
+                    <p style=" font-size: 12px ">周六、周日：上午10:00-下午9:00</p>
+                </div>
+                <div class=" footer- col-md-4 ">
+                    <h5 style=" color: #FF6000 "><b>一店地址</b></h5>
+                    <div class=" kong " style=" height: 24px; "></div>
+                    <p>门店地址：上海市松江区佘山林荫大道18号</p>
+                    <p>预约电话：<strong style=" color:#FF6000; ">400-562-6654 </strong></p>
+                    <div class=" kong " style=" height: 24px; "></div>
+                    <strong style=" font-size:15px;color:#7f7d7d; ">营业时间：</strong>
+                    <p style=" font-size: 12px ">周一 ~周五：上午9:30-下午8:00 </p>
+                    <p style=" font-size: 12px ">周六、周日：上午10:00-下午9:00</p>
+                </div>
+                <div class=" footer- col-md-4 ">
+                    <h5 style=" color: #FF6000 "><b>一店地址</b></h5>
+                    <div class=" kong " style=" height: 24px; "></div>
+                    <p>门店地址：上海市松江区佘山林荫大道18号</p>
+                    <p>预约电话：<strong style=" color:#FF6000; ">400-562-6654 </strong></p>
+                    <div class=" kong " style=" height: 24px; "></div>
+                    <strong style=" font-size:15px;color:#7f7d7d; ">营业时间：</strong>
+                    <p style=" font-size: 12px ">周一 ~周五：上午9:30-下午8:00 </p>
+                    <p style=" font-size: 12px ">周六、周日：上午10:00-下午9:00</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- 版权开始 -->
+    <div class=" footer-copy ">
+        <ul class=" footer-icon ">
+            <li class=" icon-item "><i class=" iconfont iconqq "></i></li>
+            <li class=" icon-item "><i class=" iconfont iconweixin1 "></i></li>
+            <li class=" icon-item "><i class=" iconfont iconxiaoxi1 "></i></li>
+            <li class=" icon-item "><i class=" iconfont icondianhua "></i></li>
+            <li class=" icon-item "><i class=" iconfont icon7 "></i></li>
+        </ul>
+        <div class=" copy-text ">版权所有 2019-2020 汽车美容工作室 技术支持：起飞页</div>
+        <div class=" anniu " onclick=" topFunction() ">
+            <i class=" iconfont iconshang "></i>
+        </div>
+    </div>
+
+
+</body>
+<script src=" ./js/common.js "></script>
+</html5

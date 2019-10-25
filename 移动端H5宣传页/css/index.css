@@ -1,0 +1,367 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* 第一张 */
+
+.one {
+    position: relative;
+    width: 7.5rem;
+    height: 13.34rem;
+    background: url(../image/slide1/bg.png);
+}
+
+.top-text {
+    position: absolute;
+    top: 0.68rem;
+    left: 0.6rem;
+    width: 1.68rem;
+    height: 0.85rem;
+    font-size: 0.3rem;
+    color: #828282;
+}
+
+.top-fav {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.41rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.top-fav>img {
+    width: 100%;
+    height: 100%;
+}
+
+.center-block {
+    position: absolute;
+    top: 3.22rem;
+    left: 0.98rem;
+    width: 5.57rem;
+    height: 5.68rem;
+}
+
+.center-block>img {
+    width: 100%;
+}
+
+.center-shoes {
+    position: absolute;
+    top: 3.2rem;
+    left: 0.92rem;
+    width: 5.7rem;
+    height: 4.36rem;
+}
+
+.center-shoes>img {
+    width: 100%;
+}
+
+.center-rectangle1 {
+    position: absolute;
+    bottom: 4.08rem;
+    left: 0.6rem;
+    width: 0.52rem;
+    height: 0.09rem;
+    border-radius: 0.0431rem;
+    background-color: #fc666e;
+}
+
+.bottom-title {
+    position: absolute;
+    bottom: 2.64rem;
+    left: 0.58rem;
+    width: 2.8rem;
+    height: 0.94rem;
+}
+
+.bottom-title>img {
+    width: 100%;
+}
+
+.bottom-price {
+    position: absolute;
+    bottom: 1.25rem;
+    right: 0.6rem;
+    width: 1.5rem;
+    height: 0.7rem;
+}
+
+.bottom-price>img {
+    width: 100%;
+}
+
+.bottom-quanquan {
+    position: absolute;
+    bottom: 0.24rem;
+    left: 3.35rem;
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.bottom-quanquan>img {
+    width: 100%;
+}
+
+
+/* 第二张 */
+
+.two {
+    position: relative;
+    width: 7.5rem;
+    height: 13.34rem;
+    background: url(../image/slide2/bg.png);
+}
+
+.two-center-shoes {
+    position: absolute;
+    top: 3.22rem;
+    left: 1.12rem;
+    width: 5.23rem;
+    height: 4.7rem;
+}
+
+.two-center-shoes>img {
+    width: 100%;
+}
+
+.two-box {
+    position: absolute;
+    top: 8.63rem;
+    left: 0.3rem;
+    width: 6.9rem;
+    height: 4.71rem;
+    border-top-left-radius: 0.2rem;
+    border-top-right-radius: 0.15rem;
+    background-color: #fff;
+}
+
+.two-box-row {
+    position: absolute;
+    top: 0.91rem;
+    left: 0.3rem;
+    width: 0.52rem;
+    height: 0.09rem;
+    background-color: #fc666e;
+    border-radius: 0.0431rem;
+}
+
+.two-box-text1 {
+    position: absolute;
+    top: 1.45rem;
+    left: 0.3rem;
+    width: 3.6rem;
+    height: 0.4rem;
+    color: #828282;
+    font-size: 0.4rem;
+}
+
+.two-box-text2 {
+    position: absolute;
+    top: 2rem;
+    left: 0.3rem;
+    width: 5rem;
+    height: 0.5rem;
+    color: #434343;
+    font-size: 0.5rem;
+}
+
+.two-box-text3 {
+    position: absolute;
+    bottom: 1.18rem;
+    left: 0.3rem;
+    width: 4.13rem;
+    height: 0.44rem;
+    color: #828282;
+    font-size: 0.18rem;
+}
+
+.three {
+    position: relative;
+    width: 7.5rem;
+    height: 13.34rem;
+    background: #fbfafb;
+    overflow: hidden;
+}
+
+.three-text {
+    position: absolute;
+    top: 0.68rem;
+    left: 0.6rem;
+    width: 1.68rem;
+    height: 0.85rem;
+    font-size: 0.3rem;
+    color: #828282;
+}
+
+.three-row {
+    position: absolute;
+    top: 2.77rem;
+    left: 0.6rem;
+    width: 0.52rem;
+    height: 0.09rem;
+    background-color: #fc666e;
+    border-radius: 0.0431rem;
+}
+
+.three-box {
+    position: absolute;
+    top: 2.8rem;
+    left: 1.06rem;
+    border-radius: 0.2rem;
+    width: 7.01rem;
+    height: 10.81rem;
+    background: #fff;
+}
+
+.three-text1 {
+    position: absolute;
+    top: 3.5rem;
+    left: 0.6rem;
+    width: 2rem;
+    height: 0.5rem;
+    font-size: 0.5rem;
+    color: #434343;
+}
+
+.three-text2 {
+    position: absolute;
+    top: 4.53rem;
+    left: 0.6rem;
+    width: 5.2rem;
+    height: 1.36rem;
+    font-size: 0.4rem;
+    color: #828282;
+}
+
+.three-shoes {
+    position: absolute;
+    bottom: 0.6rem;
+    right: 0;
+    width: 5.54rem;
+    height: 7.2rem;
+}
+
+.three-shoes>img {
+    width: 100%;
+}
+
+.three-fanye {
+    position: absolute;
+    bottom: 0.6rem;
+    left: 3.35rem;
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.three-fanye>img {
+    width: 100%;
+}
+
+.four {
+    position: relative;
+    width: 7.5rem;
+    height: 13.34rem;
+    background: #f2f2f2;
+    overflow: hidden;
+}
+
+.four-top {
+    width: 100%;
+    height: 6.77rem;
+    background: #fc666e;
+}
+
+.four-img1 {
+    position: absolute;
+    top: 1.4rem;
+    left: 0.6rem;
+    width: 6.3rem;
+    height: 3.2rem;
+}
+
+.four-img1>img {
+    width: 100%;
+}
+
+.four-img2 {
+    position: absolute;
+    top: 4.3rem;
+    left: 0.6rem;
+    width: 6.3rem;
+    height: 3.2rem;
+}
+
+.four-img2>img {
+    width: 100%;
+}
+
+.four-row {
+    position: absolute;
+    bottom: 4.6rem;
+    left: 3.5rem;
+    width: 0.52rem;
+    height: 0.09rem;
+    background-color: #fc666e;
+    border-radius: 0.0431rem;
+}
+
+.four-text1 {
+    position: absolute;
+    bottom: 3.66rem;
+    left: 2.75rem;
+    width: 2rem;
+    height: 0.5rem;
+    font-size: 0.5rem;
+    color: #434343;
+}
+
+.four-text2 {
+    position: absolute;
+    bottom: 2.24rem;
+    left: 1.57rem;
+    width: 4.36rem;
+    height: 0.86rem;
+    font-size: 0.4rem;
+    color: #434343;
+}
+
+.four-fanye {
+    position: absolute;
+    bottom: 0.54rem;
+    left: 3.4rem;
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.four-fanye>img {
+    width: 100%;
+}
+
+.five {
+    position: relative;
+    width: 7.5rem;
+    height: 13.34rem;
+    background: #f2f2f2;
+    overflow: hidden;
+}
+
+.six {
+    position: relative;
+    width: 7.5rem;
+    height: 13.34rem;
+    background: #f2f2f2;
+    overflow: hidden;
+}
+
+.seven {
+    position: relative;
+    width: 7.5rem;
+    height: 13.34rem;
+    background: #f2f2f2;
+    overflow: hidden;
+}

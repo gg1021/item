@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+    table input{
+        border: none;
+        outline: none;
+    }
+</style>
+<body>
+<ol class="breadcrumb">
+    <li>首页</li>
+    <li class="active">在线预约内容<?php ?></li>
+</ol>
+
+<table class="table table-striped <?php echo count($result)?'':'hidden'; ?>">
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>手机号</th>
+            <th>预约项目</th>
+            <th>备注</th>
+            <th>预约时间</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+            <?php
+                foreach($result as $key =>$value){
+                    ?>
+                    <tr id="<?php echo $value['id'] ?>">
+                        <td><input name="oname" data-value="<?php echo $value['oname']; ?>" type="text" value="<?php echo $value['oname']; ?>"></td>
+                        <td><input name="osex" data-value="<?php echo $value['osex']; ?>" type="text" value="<?php echo $value['osex']; ?>"></td>
+                        <td><input name="ophone" data-value="<?php echo $value['ophone']; ?>" type="text" value="<?php echo $value['ophone']; ?>"></td>
+                        <td><input name="oservice" data-value="<?php echo $value['oservice']; ?>" type="text" value="<?php echo $value['oservice']; ?>"></td>
+                        <td><input name="oexplain" data-value="<?php echo $value['oexplain']; ?>" type="text" value="<?php echo $value['oexplain']; ?>"></td>
+                        <td><input name="odate" data-value="<?php echo $value['odate']; ?>" type="text" value="<?php echo $value['odate']; ?>"></td>
+                        <td><button class="btn btn-danger dianji">删除</button></td>
+                    </tr>
+            <?php
+                }
+            ?>
+    </tbody>
+</table>
+<div class="<?php echo !count($result)?'':'hidden'; ?>">暂无数据</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $("tbody").on('blur','input',function (){
+        let value = this.value;
+        let id = $(this).closest('tr').attr('id');
+        let type = this.name;
+        let oldvalue = this.dataset.value;
+        value.length && oldvalue != value && $.ajax({
+            url:'onlinechange.php',
+            type:'POST',
+            dataType:'json',
+            data:{id,value,type},
+            context:this,
+            success(res){
+                if (res.code == 200){
+                    alert(res.msg);
+                }else{
+                    alert(res.msg);
+                }
+            }
+        })
+        value.length || (this.value = oldvalue);
+    });
+    $("tbody").on('click','.dianji',function (){
+        let id = $(this).closest('tr').attr('id');
+        $.ajax({
+            url:'onlineremove.php',
+            type:'POST',
+            dataType:'json',
+            data:{id},
+            context:this,
+            success(res) {
+                if (res.code == 200){
+                    alert(res.msg);
+                    $('#'+id).remove();
+
+                }else{
+                    alert(res.msg);
+                }
+            }
+        })
+    });
+</script>
+</html>

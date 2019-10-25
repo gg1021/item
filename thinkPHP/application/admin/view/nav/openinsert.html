@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>添加导航</title>
+    <link rel="stylesheet" href="/thinkPHP/public/static/css/layui.css">
+</head>
+<body>
+<form class="layui-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">导航名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="nname" placeholder="请输入中文名称" autocomplete="off" class="layui-input" lay-verify="nname|required">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">导航名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="ename" placeholder="请输入英文名称" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">导航排序</label>
+        <div class="layui-input-block">
+            <input type="number" name="nsort" placeholder="请输入顺序" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">导航地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="ntpl" placeholder="请输入地址" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="go">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+<script src="/thinkPHP/public/static/layui.js"></script>
+<script>
+    layui.use(['form','layer'], function(){
+        let form = layui.form;
+        let $ = layui.$;
+        let layer = layui.layer;
+        form.verify({
+            nname: function(value, item){ //value：表单的值、item：表单的DOM对象
+                if(!new RegExp("^[\u4e00-\u9fa5]+$").test(value)){
+                    return '用户名不能有特殊字符';
+                }
+                if(/(^\_)|(\__)|(\_+$)/.test(value)){
+                    return '用户名首尾不能出现下划线\'_\'';
+                }
+            }
+            //我们既支持上述函数式的方式，也支持下述数组的形式
+            //数组的两个值分别代表：[正则匹配、匹配不符时的提示文字]
+            ,pass: [
+                /^[\S]{6,12}$/
+                ,'密码必须6到12位，且不能出现空格'
+            ]
+        });
+        form.on('submit(go)',function (data){
+            let qs=data.field;
+                $.ajax({
+                    url:'/thinkPHP/public/index.php/admin/Nav/insert',
+                    type:'POST',
+                    data:qs,
+                    dataType:'json',
+                    success:function (res){
+                        if (res.code==200){
+                            layer.msg(res.msg);
+                        }
+                    }
+                });
+            return false;
+        })
+
+    });
+
+
+</script>
+</body>
+</html>

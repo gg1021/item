@@ -1,0 +1,512 @@
+/* 清除默认样式 */
+
+body {
+    margin: 0;
+    font-family: 微软雅黑;
+}
+
+ul,
+li {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    list-style: none;
+    color: #000000;
+    text-decoration: none;
+}
+
+.topkbb {
+    width: 100%;
+    height: 90px;
+}
+
+
+/* 首页轮播图开始 */
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 442px;
+}
+
+.banner-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.banner-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.banner-item {
+    width: 100%;
+    height: 100%;
+}
+
+.bannerbj {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.bannerbj1 {
+    background-image: url(../img/index/banner1.png);
+}
+
+.bannerbj2 {
+    background-image: url(../img/index/banner2.png);
+}
+
+.bannerbj3 {
+    background-image: url(../img/index/banner3.png);
+}
+
+.bannerbj4 {
+    background-image: url(../img/index/banner4.png);
+}
+
+.bannerbj5 {
+    background-image: url(../img/index/banner5.png);
+}
+
+.swiper-pagination-bullet {
+    background: #FFFFFF;
+    opacity: 1;
+}
+
+.my-bullet-active {
+    background: #ff6600;
+    opacity: 1;
+}
+
+
+/* 首页轮播图结束 */
+
+
+/* 首页中间部分开始 */
+
+.center {
+    margin-bottom: 40px;
+}
+
+.center-content {
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+/* 首页购房服务开始 */
+
+.serve {
+    margin: 0 auto;
+    margin-top: 8px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+}
+
+.serve-title,
+.serve-word {
+    width: 100%;
+    text-align: center;
+}
+
+.serve-word {
+    margin-top: 10px;
+}
+
+.serve-title>span {
+    font-size: 36px;
+    color: #3e3e3e;
+}
+
+.serve-word>span {
+    font-size: 16px;
+    color: #808080;
+}
+
+.serve-content {
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 40px;
+    box-sizing: border-box;
+}
+
+.serve-item {
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+}
+
+.serve-item-img {
+    margin-top: 10px;
+}
+
+.serve-item-img>img {
+    display: block;
+    border-radius: 50%;
+    margin: 0 auto;
+    width: 128px;
+    height: 128px;
+}
+
+.serve-item-name {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.serve-item-name>span {
+    color: #ff6000;
+    font-size: 16px;
+    font-family: 宋体;
+}
+
+.serve-item-line {
+    position: relative;
+    height: 18.4px;
+}
+
+.serve-item-line>img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.serve-span {
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+
+.serve-span>span {
+    color: #808080;
+    font-size: 14px;
+}
+
+
+/* 首页购房服务结束 */
+
+
+/* 首页公司简介开始 */
+
+.center-title {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.center-title-content {
+    text-align: center;
+}
+
+.center-title-content>span {
+    font-size: 40px;
+    color: #3e3e3e;
+}
+
+.center-title-img {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.center-title-img>img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.center-introduce {
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 40px;
+    box-sizing: border-box;
+}
+
+.center-introduce-img {
+    display: flex;
+    justify-content: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+.center-introduce-img>img {
+    width: 255px;
+}
+
+.center-introduce-content {
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+}
+
+.center-introduce-contents {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.introduce-content-top {
+    width: 100%;
+}
+
+.introduce-content-top>a {
+    display: block;
+    float: left;
+}
+
+.introduce-content-top>a:nth-child(2) {
+    float: right;
+}
+
+.introduce-top-title {
+    display: inline-block;
+    font-size: 18px;
+    color: #ff6000;
+    transform: all 0.6s;
+}
+
+.introduce-top-more {
+    display: inline-block;
+    font-size: 12px;
+    color: #ff6000;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.introduce-content-line {
+    margin-top: 5px;
+    width: 100%;
+    height: 1px;
+    background-color: #efefef;
+}
+
+.introduce-content-word {
+    margin-top: 10px;
+}
+
+.introduce-content-word>span {
+    font-size: 14px;
+    color: #808080;
+    line-height: 26px;
+}
+
+.introduce-content-blank {
+    width: 100%;
+    height: 24px;
+}
+
+
+/* 首页公司简介结束 */
+
+
+/* 首页房屋知识开始 */
+
+.center-house {
+    margin: 0 auto;
+    width: 100%;
+    min-height: 274px;
+    margin-top: 40px;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.center-house-word {
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-sizing: border-box;
+}
+
+.center-house-content {
+    width: 100%;
+    padding-right: 30px;
+    box-sizing: border-box;
+}
+
+.center-house-docx {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.center-house-docx>ul {
+    width: 100%;
+}
+
+.center-house-item {
+    margin-bottom: 5px;
+    padding: 0 5px 5px;
+    box-sizing: border-box;
+    border-bottom: 1px dotted #c1c1c1;
+}
+
+.house-item-box {
+    margin-bottom: 5px;
+}
+
+.house-item-box>a {
+    display: inline;
+    color: #808080;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.house-item-box>span {
+    float: right;
+    color: #c9c9c9;
+    line-height: 14px;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.center-house-img {
+    display: flex;
+    justify-content: center;
+}
+
+.center-house-img>img {
+    width: 235px;
+}
+
+.center-house-item:hover .house-item-box>a,
+.center-house-item:hover .house-item-box>span {
+    color: #e40000;
+}
+
+
+/* 首页房屋知识结束 */
+
+
+/* 首页中间部分结束 */
+
+
+/* 响应式布局开始 */
+
+@media screen and (min-width:1200px) {
+    .center-introduce-contents {
+        padding-left: 30px;
+    }
+    .serve-content {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .center-introduce {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .center-house {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width:1200px) {
+    .center-introduce-contents {
+        padding-left: 30px;
+    }
+    .serve-content {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .center-introduce {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .center-house {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .center-introduce-img>img {
+        width: 205px;
+    }
+    .center-house-img>img {
+        width: 185px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:992px) {
+    .center-introduce-img>img {
+        width: 600px;
+    }
+    .center-introduce-contents {
+        padding-left: 0;
+    }
+    .center-house-content {
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .serve-title>span {
+        font-size: 24px;
+    }
+    .serve-word>span {
+        font-size: 14px;
+    }
+    .serve-span>span {
+        font-size: 13px;
+    }
+    .center-title-content>span {
+        font-size: 26px;
+    }
+    .introduce-top-title {
+        font-size: 14px;
+    }
+    .introduce-top-more {
+        font-size: 12px;
+    }
+    .banner-dot {
+        opacity: 0;
+    }
+    .center-house-img>img {
+        width: 100%;
+    }
+    .center-house-content {
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width:845px) {
+    .center-house-img>img {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:845px) and (max-width:992px) {
+    .center-house-img>img {
+        width: 768px;
+        height: 480px;
+    }
+}
+
+
+/* 响应式布局接受 */

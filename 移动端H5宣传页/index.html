@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" rem=750>
+
+<body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" minimum-scal=1,maximum-scale=1,user-sscalable=no>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/rem.css">
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="../../swiper-4.5.0/dist/css/swiper.css">
+        <link rel="stylesheet" href="../../2019.08.05~/公共的css/animate.min.css">
+    </head>
+
+    <body>
+
+        <div class="swiper-container" id="bigBox">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="one">
+                        <div class="top-text ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                            <div>NIKE AIR</div>
+                            <div>MAX 270 PRM</div>
+                            <div>LEA</div>
+                        </div>
+                        <div class="top-fav ani" swiper-animate-effect=" rollIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                            <img src="./image/slide1/fav.png" alt="">
+                        </div>
+                        <div class="center-block ani" swiper-animate-effect=" zoomInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+                            <img src="./image/slide1/block.png" alt="">
+                        </div>
+                        <div class="center-shoes ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.6s">
+                            <img src="./image/slide1/shoes.png" alt="">
+                        </div>
+                        <div class="bottom-title">
+                            <img src="./image/slide1/title.png" alt="">
+                        </div>
+                        <div class="bottom-price">
+                            <img src="./image/slide1/price.png" alt="">
+                        </div>
+                        <div class="bottom-quanquan">
+                            <img src="./fanye.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="two">
+                        <div class="two-center-shoes">
+                            <img src="./image/slide2/shoes.png" alt="">
+                        </div>
+                        <div class="two-box">
+                            <div class="two-box-row"></div>
+                            <div class="two-box-text1">远离枯燥的旧式人生</div>
+                            <div class="two-box-text2">做个自由自在的野孩子</div>
+                            <div class="two-box-text3">Keep away from the dull old-fashioned life, Be a free wild chil</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="three">
+                        <div class="three-text">
+                            <div>NIKE AIR</div>
+                            <div>MAX 270 PRM</div>
+                            <div>LEA</div>
+                            <div>//</div>
+                        </div>
+                        <div class="three-row"></div>
+
+                        <div class="three-box">
+
+                        </div>
+                        <div class="three-text1">质感鞋面</div>
+                        <div class="three-text2">
+                            <div>鞋面采用牛皮革与纺织品打造</div>
+                            <div>质感不凡</div>
+                            <div>尽显你的型格</div>
+                        </div>
+                        <div class="three-shoes"><img src="./image/slide3/shoes.png" alt=""></div>
+                        <div class="three-fanye">
+                            <img src="./fanye.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="four">
+                        <div class="four-top">
+                            <div class="three-text" style="color: #fff;">
+                                <div>NIKE AIR</div>
+                                <div>MAX 270 PRM</div>
+                                <div>LEA</div>
+                                <div>//</div>
+                            </div>
+                        </div>
+                        <div class="four-img1">
+                            <img src="./image/slide4/up.png" alt="">
+                        </div>
+                        <div class="four-img2"> <img src="./image/slide4/shoes.png" alt="">
+                        </div>
+                        <div class="four-row"></div>
+                        <div class="four-text1">保暖升级</div>
+                        <div class="four-text2">
+                            <div>内里加绒设计，温暖满载</div>
+                            <div>时刻活力行走</div>
+                        </div>
+                        <div class="four-fanye">
+                            <img src="./fanye.png" alt="">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- <div class="five">
+            <div class="three-text">
+                <div>NIKE AIR</div>
+                <div>MAX 270 PRM</div>
+                <div>LEA</div>
+                <div>//</div>
+            </div>
+        </div>
+        <div class="six">
+            <div class="three-text">
+                <div>NIKE AIR</div>
+                <div>MAX 270 PRM</div>
+                <div>LEA</div>
+                <div>//</div>
+            </div>
+        </div>
+        <div class="seven">
+            <div class="three-text">
+                <div>NIKE AIR</div>
+                <div>MAX 270 PRM</div>
+                <div>LEA</div>
+                <div>//</div>
+            </div>
+        </div> -->
+    </body>
+    <script src="../../swiper-4.5.0/dist/js/swiper.js"></script>
+    <script src="../../2019.08.05~/公共的js/swiper.animate1.0.3.min.js"></script>
+    <script>
+        let bigBanner = new Swiper("#bigBox", {
+            width: window.innerWidth,
+            //垂直动画
+            direction: "vertical",
+            height: window.innerHeight,
+            loop: true,
+            //动画需要加的东西
+            on: {
+                init: function() {
+                    swiperAnimateCache(this); //隐藏动画元素 
+                    swiperAnimate(this); //初始化完成开始动画
+                },
+                slideChangeTransitionEnd: function() {
+                    swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+                    //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
+                }
+            }
+        })
+    </script>
+
+</html>

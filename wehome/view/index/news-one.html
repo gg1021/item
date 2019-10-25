@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新闻资讯</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/news.css">
+</head>
+<style>
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+    .beijing {
+        /* padding: 0 100px; */
+        box-sizing: border-box;
+    }
+    
+    .wenben {
+        width: 100%;
+        padding-bottom: 100px;
+    }
+    
+    .wenben-1 {
+        width: 100%;
+        clear: both;
+    }
+    
+    .xiuche {
+        font-size: 32px;
+        color: #000000;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    @media screen and (max-width:768px) {
+        .xiuche {
+            transition: 1s;
+            font-size: 20px;
+        }
+        .beijing {
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .dianji>.right {
+            display: block;
+            float: left;
+        }
+    }
+    
+    .riqi {
+        /* background-color: rgb(159, 43, 226); */
+        margin-bottom: 65px;
+        font-size: 14px;
+        color: #000000;
+        text-align: center;
+        overflow: hidden;
+    }
+    
+    .qiche {
+        /* width: 964px; */
+        /* background-color: rgb(214, 226, 43); */
+        font-size: 14px;
+        margin-bottom: 36px;
+    }
+    
+    .baochi {
+        /* width: 964px; */
+        /* background-color: rgb(43, 226, 150); */
+        font-size: 14px;
+        margin-bottom: 36px;
+    }
+    
+    .dianji {
+        /* width: 964px; */
+        height: 32px;
+        /* background-color: blue; */
+        margin: 45px 0;
+    }
+    
+    .dianji>.left>a {
+        color: red;
+    }
+    
+    .dianji>.right>a {
+        color: red;
+    }
+    
+    .left {
+        /* width: 482px; */
+        height: 32px;
+        /* background-color: blueviolet; */
+        float: left;
+        font-size: 14px;
+        line-height: 32px;
+    }
+    
+    .right {
+        /* width: 482px; */
+        height: 32px;
+        /* background-color: blueviolet; */
+        float: right;
+        font-size: 14px;
+        line-height: 32px;
+        text-align: right;
+    }
+    
+    .return {
+        width: 138px;
+        height: 62px;
+        background-color: white;
+        margin: 88px auto 0;
+        font-size: 24px;
+        color: #070202;
+        line-height: 62px;
+        text-align: center;
+        border: solid 1px #2A2A2A;
+        /* padding: 13px 19px; */
+    }
+    
+    .return:hover {
+        background-color: #2A2A2A;
+    }
+    
+    .return a {
+        color: #0f0000;
+        /* text-decoration: none; */
+        /* transition: 0.5s; */
+    }
+    
+    .return a:hover {
+        color: white;
+    }
+    
+    .return a:link {
+        text-decoration: none;
+    }
+    
+    .dianji a:link {
+        text-decoration: none;
+    }
+    
+    .down {
+        height: 30px;
+        width: 100%;
+        line-height: 30px;
+        font-size: 14px;
+        color: #a5a5a5;
+    }
+    
+    .top {
+        height: 36px;
+        width: 100%;
+        line-height: 36px;
+        font-family: 微软雅黑;
+        font-size: 32px;
+        color: #333333;
+        margin-top: 30px;
+        width: 180px;
+    }
+    
+    .fg {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+    }
+    
+    .fg-left {
+        height: 62px;
+        width: calc(50% - 90px);
+        border-bottom: solid 1px #d6d6d6;
+        text-align: center;
+        line-height: 125px;
+        float: left;
+    }
+    
+    .fg-right {
+        height: 62px;
+        width: calc(50% - 90px);
+        float: right;
+        border-bottom: solid 1px #d6d6d6;
+        float: left;
+    }
+    
+    .tupian {
+        width: 100%;
+        height: 100%;
+        display: block;
+        /* background-color: aquamarine; */
+        margin: 30px auto 0;
+    }
+    
+    .tupian img {
+        width: 100%;
+        /* height: 204.79px; */
+    }
+    
+    @media screen and (max-width:768px) {
+        .top {
+            transition: 1s;
+            font-size: 20px;
+        }
+        .down {
+            transition: 1s;
+            font-size: 20px;
+        }
+    }
+</style>
+
+<body>
+    <!-- 头部导航开始 -->
+    <a name="top"></a>
+    <!-- 导航浮出效果 -->
+    <div class="hd-up animated">
+        <div class="ttt">
+            <div class="logo-" style="height: 57.6px">
+                <div class="logo" style="padding: 10px 10px 10px 0;">
+                    <img src="./img/common/logo.png" alt="logo" style="width: 115.89px;">
+                </div>
+            </div>
+            <ul class="menu" style="height: 57.6px;padding: 10px 0;box-sizing: border-box;">
+                <div class="menu-">
+                    <li class="menu-item"><a href="#">首页</a></li>
+                    <li class="menu-item"><a href="#">关于我们</a></li>
+                    <li class="menu-item"><a href="#">产品中心</a></li>
+                    <li class="menu-item"><a href="#">服务项目</a></li>
+                    <li class="menu-item"><a href="#" style="color: #FF6000;">新闻资讯</a></li>
+                    <li class="menu-item"><a href="#">在线预约</a></li>
+                </div>
+
+            </ul>
+        </div>
+    </div>
+    <!-- 头部开始 -->
+    <header>
+        <div class="ttt">
+            <nav>
+                <div class="logo-">
+                    <div class="logo">
+                        <img src="./img/common/logo.png" alt="logo">
+                    </div>
+                </div>
+                <ul class="menu">
+                    <div class="menu-">
+                        <li class="menu-item">
+                            <a href="./index.html" ">首页</a></li>
+                        <li class=" menu-item "><a href=" ./aboutus.html ">关于我们</a></li>
+                        <li class=" menu-item "><a href=" ./item.html ">产品中心</a></li>
+                        <li class=" menu-item "><a href=" ./fuwuxiangmu.html ">服务项目</a></li>
+                        <li class=" menu-item "><a href=" ./news.html "  style=" color: #FF6000; ">新闻资讯</a>
+                        </li>
+                        <li class=" menu-item "><a href="OnlineBooking.html ">在线预约</a></li>
+                    </div>
+
+                </ul>
+            </nav>
+            <div class=" menu-bar-top ">
+                <div class=" bar-up ">
+                    <a href=" # " class=" menu-bar-top-text ">
+                        <span>新闻资讯</span>
+                        <i class=" iconfonticonxialajiantou "></i>
+                    </a>
+                </div>
+                <div class=" bar-up " style=" display: none ">
+                    <a href=" # " class=" menu-bar-top-text ">
+                        <span>关闭</span>
+                        <i class=" iconfont iconxialajiantou "></i>
+                    </a>
+                </div>
+                <!-- <div class=" kong col-xs-2 "></div> -->
+                <div class=" bar-down ">
+                    <a href=" ./index.html " class=" menu-bar-top-text first ">
+                        <span>首页</span>
+                    </a>
+                    <a href=" ./aboutus.html " class=" menu-bar-top-text first ">
+                        <span>关于我们</span>
+                    </a>
+                    <a href=" ./item.html " class=" menu-bar-top-text first ">
+                        <span>产品中心</span>
+                    </a>
+                    <a href=" ./fuwuxiangmu.html " class=" menu-bar-top-text first ">
+                        <span>服务项目</span>
+                    </a>
+                    <a href=" ./news.html " class=" menu-bar-top-text first ">
+                        <span>新闻资讯</span>
+                    </a>
+                    <a href="OnlineBooking.html " class=" menu-bar-top-text first ">
+                        <span>在线预约</span>
+                    </a>
+                </div>
+                <!-- <div class=" kong col-xs-2 "></div> -->
+
+            </div>
+            <div class=" menu-bar-bottom ">
+                <a href=" # ">
+                    <span>在线预约</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- 头部结束 -->
+    <div style=" width: 100%;height:90px "></div>
+<!-- 背景 -->
+<div class=" container ">
+    <div class=" row ">
+        <div class=" beijing ">
+            <div class=" beijing-2 ">
+                <!-- 图片 -->
+                <div class=" tupian ">
+                    <img src="./img/news/1.png " alt=" src ">
+                </div>
+                <!-- 养护知识开始 -->
+                <div class=" fg ">
+                    <div class=" fg-left "></div>
+                    <div class=" flow ">
+                        <div class=" top ">养护知识</div>
+                        <div class=" down ">Knowledgement</div>
+                    </div>
+                    <div class=" fg-right "></div>
+                </div>
+                <!-- 养护知识结束 -->
+                <!-- 内容开始 -->
+                <div class=" wenben col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                    <div class="wenben-1 ">
+                        <div class="xiuche ">实木指接板</div>
+                        <div class="riqi ">发布日期： 2015-01-20 12:03</div>
+                        <div class="qiche ">
+                            <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp汽指接板，又名集成板、集成材、指接材，也就是将经过深加工处理过的实木小块像“手指头”一样拼接而成的板材，由于木板间采用锯齿状接口，类似两手手指交叉对接，故称指接板。由于原木条之间是交叉结合的，这样的结合构造本身有一定的结合力，又因不用再上下粘表面板，顾其使用的胶极其微量。</span>
+                        </div>
+                        <div class="baochi ">
+                            <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp优点：由于实木接板的连接处较少，用胶量也较少，所以环保系数相对较高。具有易加工性，可切割、钻孔、锯加工和成型加工。</span>
+                        </div>
+                        <div class="baochi ">
+                            <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&缺点：实木指接板容易变形，开裂。好的实木指接板品质有保证但成本较高。</span>
+                        </div>
+                        <div class="baochi ">
+                            <span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp在清洁过程中首先需要注意检查工作环境是否有明火，尤其注意在清洁期间禁止吸烟，当发动机熄火的时候还应该注意断开电池负极与汽车电缆连接。因 为汽车电池内含大量硫磺的酸会产生易燃氢气，遇明火容易产生爆炸发生危险。然后要记得在清洁开始前以及结束后将所有物品拭干避免短路发生。</span>
+                        </div>
+                        <div class=" dianji ">
+                            <div class=" left "><a href="news-six.html ">上一篇&nbsp封边知识</a></div>
+                            <div class=" right "><a href="news-two.html ">下一篇&nbsp大亚实木颗粒板</a></div>
+                        </div>
+                        <!-- 返回按钮 -->
+                        <div class="return "> <a href="news.html ">返回列表</div>
+                <!-- 返回按钮结束 -->
+            </div>
+            </div>
+
+            
+
+        <div class=" kong ">
+
+        </div>
+        <div class=" tupian ">
+            <div class=" tpbj " style="padding: 35px;padding-bottom: 0; ">
+                <img src="./img/news/2.png " alt=" src ">
+            </div>
+        </div>
+        <!-- 内容结束 -->
+
+        <!-- 背景结束 -->
+    </div>
+</div>
+</div>
+</div>
+    <div style=" width: 100%;height:120px "></div>
+    <!-- 底部开始 -->
+    <footer>
+        <div class=" hhh container ">
+            <div class=" row ">
+                <div class=" footer- col-md-4 ">
+                    <h5 style=" color: #FF6000 "><b>一店地址</b></h5>
+                    <div class=" kong " style=" height: 24px; "></div>
+                    <p>门店地址：上海市松江区佘山林荫大道18号</p>
+                    <p>预约电话：<strong style=" color:#FF6000; ">400-562-6654 </strong></p>
+                    <div class=" kong " style=" height: 24px; "></div>
+                    <strong style=" font-size:15px;color:#7f7d7d; ">营业时间：</strong>
+                    <p style=" font-size: 12px ">周一 ~周五：上午9:30-下午8:00 </p>
+                    <p style=" font-size: 12px ">周六、周日：上午10:00-下午9:00</p>
+                </div>
+                <div class=" footer- col-md-4 ">
+                    <h5 style=" color: #FF6000 "><b>一店地址</b></h5>
+                    <div class=" kong " style=" height: 24px; "></div>
+                    <p>门店地址：上海市松江区佘山林荫大道18号</p>
+                    <p>预约电话：<strong style=" color:#FF6000; ">400-562-6654 </strong></p>
+                    <div class=" kong " style=" height: 24px; "></div>
+                    <strong style=" font-size:15px;color:#7f7d7d; ">营业时间：</strong>
+                    <p style=" font-size: 12px ">周一 ~周五：上午9:30-下午8:00 </p>
+                    <p style=" font-size: 12px ">周六、周日：上午10:00-下午9:00</p>
+                </div>
+                <div class=" footer- col-md-4 ">
+                    <h5 style=" color: #FF6000 "><b>一店地址</b></h5>
+                    <div class=" kong " style=" height: 24px; "></div>
+                    <p>门店地址：上海市松江区佘山林荫大道18号</p>
+                    <p>预约电话：<strong style=" color:#FF6000; ">400-562-6654 </strong></p>
+                    <div class=" kong " style=" height: 24px; "></div>
+                    <strong style=" font-size:15px;color:#7f7d7d; ">营业时间：</strong>
+                    <p style=" font-size: 12px ">周一 ~周五：上午9:30-下午8:00 </p>
+                    <p style=" font-size: 12px ">周六、周日：上午10:00-下午9:00</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- 版权开始 -->
+    <div class=" footer-copy ">
+        <ul class=" footer-icon ">
+            <li class=" icon-item "><i class=" iconfont iconqq "></i></li>
+            <li class=" icon-item "><i class=" iconfont iconweixin1 "></i></li>
+            <li class=" icon-item "><i class=" iconfont iconxiaoxi1 "></i></li>
+            <li class=" icon-item "><i class=" iconfont icondianhua "></i></li>
+            <li class=" icon-item "><i class=" iconfont icon7 "></i></li>
+        </ul>
+        <div class=" copy-text ">版权所有 2019-2020 汽车美容工作室 技术支持：起飞页</div>
+        <div class=" anniu " onclick=" topFunction() ">
+            <i class=" iconfont iconshang "></i>
+        </div>
+    </div>
+
+
+</body>
+<script src=" ./js/common.js "></script>
+</html5

@@ -1,0 +1,329 @@
+<?php
+    $cate = [['id'=>0,'cname'=>'全部']];
+    $sql = "select * from category order by id asc";
+    $cate1 = $mysql->query($sql)->fetch_all(MYSQLI_ASSOC);
+    $cate = array_merge($cate,$cate1);
+    $sql = "select * from goods";
+    $all = $mysql->query($sql)->fetch_all(MYSQLI_ASSOC);
+    $len = count($cate);
+    for($i=0;$i<$len;$i++){
+    $items = $cate[$i];
+    $id = $items['id'];
+    if($i == 0){
+    $cate[$i]['goods'] = $all ;
+    continue;
+    }
+    $goods = array_filter($all,function($v) use($id){
+    return  $v['cid'] == $id;
+    });
+    $cate[$i]['goods'] = $goods;
+    }
+
+?>
+    <link rel="stylesheet" href="../static/css/product.css">
+    <title>产品中心</title>
+
+
+    <!-- banner -->
+    <div class="container banner">
+        <div class="images">
+            <img src="../static/img/product/banner.jpg" alt="">
+        </div>
+    </div>
+    <!-- 标题-->
+    <div class="container title1">
+        <div class="b-box">
+            <!-- <div class="row"> -->
+            <div class="title">
+                <span class="line-left"></span>
+                <div class="word">
+                    <p class="main"><?php echo $nav['nname'];?></p>
+                    <p class="sub"><?php echo $nav['ename'];?></p>
+                </div>
+                <span class="line-right"></span>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+    <!-- 列表 -->
+    <div class="container list1">
+        <div class="L-box">
+            <ul class="list">
+                <?php  foreach($cate as $key=>$v){?>
+                <li class="items <?php echo $key==0?'active':'' ?>">
+                    <span><?php echo $v['cname'];?></span>
+                    <div class="content box-style">
+                        <?php foreach($v['goods'] as $value){?>
+                        <div class="shop">
+                            <div class="shoplist">
+                                <div class="shoppic">
+                                    <div class="shoppicture">
+                                        <a href="./goods.php?id=<?php echo $value['gid']?>">
+                                            <img src="<?php echo $value['gthumb'];?>" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="shopword">
+                                    <a class="word1" href="./goods.php?id=<?php echo $value['gid']?>">
+                                        <?php echo $value['gname'];?>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <?php }?>
+
+                    </div>
+                </li>
+                <?php }?>
+                <!--<li class="items active">-->
+                    <!--<span>全部</span>-->
+                    <!--<div class="content box-style">-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居1.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--北欧现代muji风实木床-->
+                            <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居2.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--实木床北欧简约卧室大床-->
+                            <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居3.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--欧美简约网红沙发小户型-->
+                            <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居4.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--北欧布艺网红沙发组合-->
+                            <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居5.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--单人位 三人位 组合布艺沙发-->
+                            <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居6.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--现代简约风格 家装厨房 卫生间-->
+                            <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居7.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--8平方 集成吊柜 吊顶-->
+                            <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="items">-->
+                    <!--<span>床</span>-->
+                    <!--<div class="content">-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居1.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--北欧现代muji风实木床-->
+                                    <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居2.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--实木床北欧简约卧室大床-->
+                                    <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="items">-->
+                    <!--<span>沙发</span>-->
+                    <!--<div class="content">-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居3.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--欧美简约网红沙发小户型-->
+                                    <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居4.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--北欧布艺网红沙发组合-->
+                                    <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居5.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--单人位 三人位 组合布艺沙发-->
+                                    <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="items">-->
+                    <!--<span>间厅柜/玄关柜</span>-->
+                    <!--<div class="content">-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居6.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--现代简约风格 家装厨房 卫生间-->
+                                    <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="shop">-->
+                            <!--<div class="shoplist">-->
+                                <!--<div class="shoppic">-->
+                                    <!--<div class="shoppicture">-->
+                                        <!--<a href="item.html">-->
+                                            <!--<img src="../static/img/product/家居7.jpg" alt="">-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="shopword">-->
+                                    <!--<a class="word1" href="item.html">-->
+                                        <!--8平方 集成吊柜 吊顶-->
+                                    <!--</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="content" style="height: 900px;"></div>
+<script src="../static/js/product.js"></script>

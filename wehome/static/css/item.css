@@ -1,0 +1,169 @@
+    * {
+        margin: 0;
+    }
+    /* banner */
+    
+    .banner {
+        background-color: #8d9095;
+        height: 270px;
+        margin-bottom: 20px;
+    }
+    
+    .ddd img {
+        width: 100%;
+    }
+    /* item */
+    
+    .title {
+        padding: 20px 20px 0;
+        height: 82px;
+        text-align: center;
+        line-height: 82px;
+        font-size: 32px;
+        color: #000000;
+    }
+    
+    .llbb {
+        width: 50%;
+    }
+    
+    .row {
+        padding: 20px 20px 0;
+    }
+    
+    .ddd {
+        position: relative;
+        margin: 0;
+        float: left;
+    }
+    
+    .lunbo {
+        float: left;
+        width: 100%;
+    }
+    
+    .lunbo>img {
+        display: block;
+        /* margin: 0 auto; */
+        width: 100%;
+    }
+    
+    .wwword {
+        margin-bottom: 24px;
+    }
+    
+    .word {
+        float: left;
+        width: 50%;
+    }
+    
+    .swiper-container .hide {
+        opacity: 0;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        transition: opacity 0.5s;
+    }
+    
+    .item {
+        margin-top: 40px;
+        padding: 0 5px;
+    }
+    
+    .price {
+        font-size: 14px;
+        color: #808080;
+    }
+    
+    .price1 {
+        margin-top: 24px;
+    }
+    
+    .price1>span {
+        font-size: 14px;
+        color: #808080;
+    }
+    
+    .price1>.buy-price {
+        font-size: 26px;
+        color: #E40000;
+        font-weight: 700;
+    }
+    
+    .line {
+        margin: 30px 0 34px 0;
+        border-bottom: 1px dotted rgb(194, 194, 194);
+    }
+    
+    .state {
+        font-size: 14px;
+        color: #808080;
+    }
+    
+    h2 {
+        padding: 24px 0;
+    }
+    
+    .banner img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    @media only screen and (max-width:992px) {
+        .lunbo {
+            width: 100%;
+            padding: 0;
+        }
+        .word {
+            width: 100%;
+        }
+        h2 {
+            font-size: 20px;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        .hhh {
+            clear: left;
+        }
+        .ddd {
+            margin: 0 auto;
+            float: none;
+        }
+        .title {
+            font-size: 32px;
+            transition: all 1s;
+        }
+        .container>.row {
+            display: none;
+        }
+    }
+    
+    @media only screen and (max-width:768px) {
+        .lunbo {
+            width: 100%;
+            padding: 0;
+        }
+        .lunbo>img {
+            margin: 0;
+            width: 100%;
+            transition: all 1s;
+        }
+        .ddd {
+            margin: 0 auto;
+        }
+        .swiper-slide-active {
+            margin: 0 auto;
+        }
+        h2 {
+            margin-left: 0;
+            padding-left: 0;
+        }
+        .banner {
+            height: 100%;
+        }
+        .title {
+            font-size: 20px;
+            transition: all 1s;
+        }
+    }

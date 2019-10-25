@@ -1,0 +1,273 @@
+body,
+ul,
+li {
+    margin: 0;
+    list-style: none;
+}
+
+.hd-up {
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    top: 0px;
+    padding: 0 40px;
+    width: 100%;
+    height: 57.6px;
+    background-color: #f0f1f2;
+    display: none;
+    animation-duration: 1s;
+}
+
+header {
+    width: 100%;
+    background-color: #f0f1f2;
+    padding: 0 40px;
+}
+
+.ttt {
+    height: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    animation-duration: 1s;
+}
+
+nav {
+    width: 100%;
+    height: 89.6px;
+}
+
+.logo- {
+    float: left;
+    width: 241.6px;
+    height: 89.6px;
+}
+
+.logo {
+    height: 100%;
+}
+
+.logo>img {
+    height: 100%;
+}
+
+.menu {
+    margin: 0;
+    float: right;
+    height: 100%;
+    padding: 25px 0;
+    box-sizing: border-box;
+}
+
+.menu- {
+    float: right;
+}
+
+.menu->li {
+    float: left;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.menu->li>a {
+    color: #777777;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    line-height: 35.5px;
+}
+
+.menu->.menu-item>a:hover {
+    color: #FF6000;
+}
+
+.menu-bar-top {
+    position: absolute;
+    left: 0;
+    top: 89.6px;
+    width: 100%;
+    height: 211.6px;
+    z-index: 999;
+    display: none;
+}
+
+.bar-up>.menu-bar-top-text {
+    width: 100%;
+    height: 43.6px;
+    background-color: #f0443a;
+    display: block;
+    line-height: 15.6px;
+    padding: 14PX 0;
+    padding-left: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-bar-top-text>span {
+    display: block;
+    float: left;
+}
+
+.menu-bar-top-text>i {
+    display: block;
+    float: right;
+    margin-right: 10px;
+}
+
+.bar-down {
+    /* min-width: 200px; */
+    max-width: 100%;
+    height: 168px;
+    display: none;
+}
+
+.bar-down>.first {
+    width: 100%;
+    height: 33.6px;
+    display: block;
+    padding: 10px 0 10px 20px;
+    box-sizing: border-box;
+    background-color: #f0f1f2;
+    color: black;
+}
+
+.bar-down>.first:hover {
+    background-color: #f0443a;
+    color: white;
+}
+
+.menu-bar-bottom {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    width: 100%;
+    height: 43.6px;
+    background-color: #f0443a;
+    display: none;
+}
+
+.menu-bar-bottom>a {
+    text-align: center;
+    line-height: 15.6px;
+    display: block;
+    padding: 14PX 0;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-bar-bottom>a>span::after {
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+}
+
+footer {
+    width: 100%;
+    /* height: 259.2px; */
+    padding: 20px 0 0 0;
+    box-sizing: border-box;
+    background-color: #f0f1f2;
+}
+
+.footer- {
+    height: 100%;
+    height: 198.4px;
+    display: block;
+}
+
+.footer->p {
+    font-size: 14px;
+    color: #a38282;
+    margin: 0;
+}
+
+.footer-copy {
+    position: relative;
+    width: 100%;
+    height: 98.6px;
+    background-color: #f0f1f2;
+}
+
+.footer-icon {
+    padding: 0;
+    position: absolute;
+    left: calc(50% - 115px);
+    bottom: 50px;
+    height: 32px;
+    margin: 0 auto;
+}
+
+.footer-icon>li {
+    float: left;
+    margin: 0 5px;
+    width: 32px;
+    height: 32px;
+}
+
+.copy-text {
+    position: absolute;
+    left: calc(50% - 155px);
+    bottom: 25px;
+    font-size: 12px;
+    color: #c6c6c6;
+    text-align: center;
+}
+
+.icon-item>i {
+    font-size: 24px;
+    color: #7f7d7d;
+    line-height: 32px;
+    margin-left: 3px;
+}
+
+.anniu {
+    position: fixed;
+    z-index: 999;
+    bottom: 40px;
+    right: 20px;
+    display: block;
+    transition: all 1s;
+}
+
+.anniu .iconfont {
+    font-size: 30px;
+    color: #7f7d7d;
+}
+
+
+/* 媒体查询 */
+
+@media screen and (max-width:992px) {
+    .hd-up {
+        position: absolute;
+        left: 0;
+        height: -57.6px;
+        animation-duration: 0s;
+    }
+    .menu-bar-top {
+        display: block;
+    }
+    .menu-bar-bottom {
+        display: block;
+    }
+    .menu {
+        transform: rotateX(90deg);
+    }
+    .logo- {
+        padding: 0;
+        position: absolute;
+        top: 0;
+        left: calc(50% - 89.65px);
+    }
+    footer {
+        display: none;
+    }
+    .footer-copy {
+        margin: 0 auto;
+    }
+    .copy-text {
+        display: none;
+    }
+}
